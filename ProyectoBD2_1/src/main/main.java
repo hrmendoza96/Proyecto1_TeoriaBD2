@@ -27,14 +27,20 @@ import javax.swing.table.DefaultTableModel;
 
 public class main extends javax.swing.JFrame {
 
-    ArrayList<Equipo> equipos = new ArrayList();
-    DecimalFormat df = new DecimalFormat("#.00");
-    Torneo torneo = null;
+    ArrayList<Equipo> equipos = new ArrayList(); //ArrayList de equipos
+    DecimalFormat df = new DecimalFormat("#.00"); //Formato de los decimales que se utilizara mas adelante con el manejo de los pesos
+    Torneo torneo = null; //Objeto de Torneo utilizado para manejar el torneo unico con 2 jornadas dentro del sistema de quinela
 
     public main() throws IOException {
 
+        //Cargar componentes externos del Jframe
+        this.setLocationRelativeTo(null);
         this.setIconImage(ImageIO.read(new File("./src/Pics/iconframe.png")));
 
+        
+        /**
+         * Cargar los Equipos en el arraylist de <equipo>
+         */
         File file = null;
         BufferedReader br = null;
         FileReader fr = null;
@@ -76,6 +82,7 @@ public class main extends javax.swing.JFrame {
         btn_VisualizarTorneo = new javax.swing.JButton();
         btn_BorrarTorneo = new javax.swing.JButton();
         btn_CrearTorneo = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         VisualizarTorneo_Dia = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -86,14 +93,34 @@ public class main extends javax.swing.JFrame {
         btn_SalirVisualizacionTorneo = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         TablaJornadaB = new javax.swing.JTable();
+        User_Main = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        btn_VerEquipos = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        label_NumJornadaUser_Main = new javax.swing.JLabel();
+        MenuApuestas = new javax.swing.JDialog();
+        jLabel9 = new javax.swing.JLabel();
+        label_NumJornadaMenuApuestas = new javax.swing.JLabel();
+        rb_EquipoA = new javax.swing.JRadioButton();
+        rb_Empate = new javax.swing.JRadioButton();
+        rb_EquipoB = new javax.swing.JRadioButton();
+        btn_SiguentePartido = new javax.swing.JButton();
+        Dialog_IngresarApuesta = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        tf_MontoApuesta = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         btn_admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_quinela = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
 
+        Administracion_Dialog.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
         jLabel3.setFont(new java.awt.Font("Agency FB", 0, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Administración");
 
         btn_ModificarTorneo.setText("Modificar Torneo");
@@ -119,6 +146,13 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Administracion_DialogLayout = new javax.swing.GroupLayout(Administracion_Dialog.getContentPane());
         Administracion_Dialog.getContentPane().setLayout(Administracion_DialogLayout);
         Administracion_DialogLayout.setHorizontalGroup(
@@ -141,7 +175,10 @@ public class main extends javax.swing.JFrame {
                             .addGroup(Administracion_DialogLayout.createSequentialGroup()
                                 .addComponent(btn_ModificarTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(btn_VisualizarTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btn_VisualizarTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(Administracion_DialogLayout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jButton1)))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         Administracion_DialogLayout.setVerticalGroup(
@@ -159,8 +196,12 @@ public class main extends javax.swing.JFrame {
                 .addGroup(Administracion_DialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_ModificarTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_VisualizarTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jButton1)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
+
+        VisualizarTorneo_Dia.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel4.setFont(new java.awt.Font("Agency FB", 0, 48)); // NOI18N
         jLabel4.setText("Torneo");
@@ -266,6 +307,180 @@ public class main extends javax.swing.JFrame {
 
         VisualizarTorneo_DiaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane1, jScrollPane3});
 
+        btn_VerEquipos.setText("Ver Equipos");
+        btn_VerEquipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VerEquiposActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Quinela de la Jornada");
+
+        jButton3.setText("Ver Torneo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel7.setText("JORNADA");
+
+        label_NumJornadaUser_Main.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        label_NumJornadaUser_Main.setText("#");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addComponent(jLabel7)
+                .addGap(32, 32, 32)
+                .addComponent(label_NumJornadaUser_Main)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(btn_VerEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(label_NumJornadaUser_Main))
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_VerEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout User_MainLayout = new javax.swing.GroupLayout(User_Main.getContentPane());
+        User_Main.getContentPane().setLayout(User_MainLayout);
+        User_MainLayout.setHorizontalGroup(
+            User_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        User_MainLayout.setVerticalGroup(
+            User_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel9.setText("JORNADA");
+
+        label_NumJornadaMenuApuestas.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        label_NumJornadaMenuApuestas.setText("#");
+
+        rb_EquipoA.setText("Equipo A");
+        rb_EquipoA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_EquipoAActionPerformed(evt);
+            }
+        });
+
+        rb_Empate.setText("Empate");
+
+        rb_EquipoB.setText("Equipo B");
+
+        btn_SiguentePartido.setText("Siguiente Partido");
+
+        javax.swing.GroupLayout MenuApuestasLayout = new javax.swing.GroupLayout(MenuApuestas.getContentPane());
+        MenuApuestas.getContentPane().setLayout(MenuApuestasLayout);
+        MenuApuestasLayout.setHorizontalGroup(
+            MenuApuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuApuestasLayout.createSequentialGroup()
+                .addGroup(MenuApuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuApuestasLayout.createSequentialGroup()
+                        .addGroup(MenuApuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuApuestasLayout.createSequentialGroup()
+                                .addGap(152, 152, 152)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(label_NumJornadaMenuApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MenuApuestasLayout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addComponent(rb_EquipoA)
+                                .addGap(91, 91, 91)
+                                .addComponent(rb_Empate)
+                                .addGap(67, 67, 67)
+                                .addComponent(rb_EquipoB)))
+                        .addGap(0, 147, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuApuestasLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_SiguentePartido)))
+                .addContainerGap())
+        );
+        MenuApuestasLayout.setVerticalGroup(
+            MenuApuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuApuestasLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(MenuApuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(label_NumJornadaMenuApuestas))
+                .addGap(105, 105, 105)
+                .addGroup(MenuApuestasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rb_EquipoA)
+                    .addComponent(rb_Empate)
+                    .addComponent(rb_EquipoB))
+                .addGap(18, 18, 18)
+                .addComponent(btn_SiguentePartido)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jLabel8.setText("Ingrese cuanto desea invertir en la quinela de la Jornada:");
+
+        jButton4.setText("Confirmar Apuesta");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(tf_MontoApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel8)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jButton4)))
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(tf_MontoApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jButton4)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout Dialog_IngresarApuestaLayout = new javax.swing.GroupLayout(Dialog_IngresarApuesta.getContentPane());
+        Dialog_IngresarApuesta.getContentPane().setLayout(Dialog_IngresarApuestaLayout);
+        Dialog_IngresarApuestaLayout.setHorizontalGroup(
+            Dialog_IngresarApuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        Dialog_IngresarApuestaLayout.setVerticalGroup(
+            Dialog_IngresarApuestaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quinela 2017");
 
@@ -277,10 +492,14 @@ public class main extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Agency FB", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Quinela 2017");
 
         btn_quinela.setText("Participación");
+        btn_quinela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_quinelaActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -326,13 +545,11 @@ public class main extends javax.swing.JFrame {
 
     private void btn_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_adminMouseClicked
         // TODO add your handling code here:
-        Administracion_Dialog.setVisible(true);
-        Administracion_Dialog.pack();
         Administracion_Dialog.setModal(true);
-
-        this.setVisible(false);
-
-
+        Administracion_Dialog.pack();
+        Administracion_Dialog.setLocationRelativeTo(this);
+        Administracion_Dialog.setVisible(true);        
+        this.setVisible(false);        
     }//GEN-LAST:event_btn_adminMouseClicked
 
     private void btn_VisualizarTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VisualizarTorneoActionPerformed
@@ -344,6 +561,7 @@ public class main extends javax.swing.JFrame {
             VisualizarTorneo_Dia.pack();
             VisualizarTorneo_Dia.setVisible(true);
             VisualizarTorneo_Dia.setModal(true);
+            Administracion_Dialog.setVisible(false);
 
             ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
             ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
@@ -390,9 +608,74 @@ public class main extends javax.swing.JFrame {
 
     private void btn_SalirVisualizacionTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirVisualizacionTorneoActionPerformed
         // TODO add your handling code here:
-        VisualizarTorneo_Dia.dispose();
+        VisualizarTorneo_Dia.setVisible(false);
+        //Administracion_Dialog.setVisible(true);
+        this.setVisible(true);
+        
 
     }//GEN-LAST:event_btn_SalirVisualizacionTorneoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.Administracion_Dialog.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_VerEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerEquiposActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_VerEquiposActionPerformed
+
+    private void rb_EquipoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_EquipoAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rb_EquipoAActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if (torneo == null) {
+            JOptionPane.showMessageDialog(this, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            VisualizarTorneo_Dia.pack();
+            VisualizarTorneo_Dia.setVisible(true);
+            VisualizarTorneo_Dia.setModal(true);
+            Administracion_Dialog.setVisible(false);
+            User_Main.setVisible(false);
+
+            ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
+            ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
+
+            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
+
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    p.getA().getPeso() - p.getB().getPeso()};
+                model.addRow(row);
+            }
+
+            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    p.getA().getPeso() - p.getB().getPeso()};
+                model.addRow(row);
+            }
+
+            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btn_quinelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quinelaActionPerformed
+        // TODO add your handling code here:
+        
+        User_Main.setModal(true);
+        User_Main.pack();
+        User_Main.setVisible(true);
+        User_Main.setLocationRelativeTo(this);
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btn_quinelaActionPerformed
 
     public void CrearEquipos() {
 
@@ -651,26 +934,46 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Administracion_Dialog;
+    private javax.swing.JDialog Dialog_IngresarApuesta;
+    private javax.swing.JDialog MenuApuestas;
     private javax.swing.JTable TablaJornadaA;
     private javax.swing.JTable TablaJornadaB;
+    private javax.swing.JDialog User_Main;
     private javax.swing.JDialog VisualizarTorneo_Dia;
     private javax.swing.JButton btn_BorrarTorneo;
     private javax.swing.JButton btn_CrearTorneo;
     private javax.swing.JButton btn_ModificarTorneo;
     private javax.swing.JButton btn_SalirVisualizacionTorneo;
+    private javax.swing.JButton btn_SiguentePartido;
+    private javax.swing.JButton btn_VerEquipos;
     private javax.swing.JButton btn_VisualizarTorneo;
     private javax.swing.JButton btn_admin;
     private javax.swing.JButton btn_quinela;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel label_NumJornadaMenuApuestas;
+    private javax.swing.JLabel label_NumJornadaUser_Main;
+    private javax.swing.JRadioButton rb_Empate;
+    private javax.swing.JRadioButton rb_EquipoA;
+    private javax.swing.JRadioButton rb_EquipoB;
+    private javax.swing.JTextField tf_MontoApuesta;
     // End of variables declaration//GEN-END:variables
 }
