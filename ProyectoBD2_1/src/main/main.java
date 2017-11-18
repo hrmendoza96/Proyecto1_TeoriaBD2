@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
 import java.io.BufferedReader;
@@ -31,7 +26,7 @@ public class main extends javax.swing.JFrame {
     public main() throws IOException {
 
         //Cargar componentes externos del Jframe
-        //this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         this.setIconImage(ImageIO.read(new File("./src/Pics/iconframe.png")));
 
         /**
@@ -981,7 +976,6 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_adminMouseClicked
-        // TODO add your handling code here:
         //Administracion_Dialog.setModal(true);
         Administracion_Dialog.pack();
         Administracion_Dialog.setLocationRelativeTo(this);
@@ -1034,11 +1028,13 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_SalirAdminActionPerformed
 
     private void btn_VerEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerEquiposActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_btn_VerEquiposActionPerformed
 
     private void rb_EquipoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_EquipoAActionPerformed
-        // TODO add your handling code here:
+
+
     }//GEN-LAST:event_rb_EquipoAActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1246,7 +1242,6 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_VerArbitrosMouseClicked
 
     private void btn_SalirVisualizarArbitrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarArbitrosMouseClicked
-        // TODO add your handling code here:
         VisualizarArbitros_Dia.setVisible(false);
         VisualizarTorneoMenu_Dia.setVisible(true);
     }//GEN-LAST:event_btn_SalirVisualizarArbitrosMouseClicked
@@ -1466,11 +1461,8 @@ public class main extends javax.swing.JFrame {
 
     }
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -1492,8 +1484,6 @@ public class main extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
