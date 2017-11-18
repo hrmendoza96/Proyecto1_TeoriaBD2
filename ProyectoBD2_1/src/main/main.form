@@ -275,7 +275,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JDialog" name="User_Main">
+    <Container class="javax.swing.JDialog" name="JDialog_Participacion">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -306,9 +306,9 @@
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       <Component id="btn_VerEquipos" min="-2" pref="129" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_QuinelaDeJornada" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="60" max="32767" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="btn_VerTorneoParticipacion" min="-2" pref="134" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -323,9 +323,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton2" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="btn_QuinelaDeJornada" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
                           <Component id="btn_VerEquipos" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="btn_VerTorneoParticipacion" alignment="3" min="-2" pref="82" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="66" max="32767" attributes="0"/>
                   </Group>
@@ -341,17 +341,17 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VerEquiposActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="btn_QuinelaDeJornada">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Quinela de la Jornada"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="btn_VerTorneoParticipacion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver Torneo"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VerTorneoParticipacionActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
