@@ -196,6 +196,18 @@ public class main extends javax.swing.JFrame {
         TablaJornadaBUsuario = new javax.swing.JTable();
         jLabel32 = new javax.swing.JLabel();
         btn_SalirVisualizacionTorneoUsuario = new javax.swing.JButton();
+        ModificarArbitro_Dia = new javax.swing.JDialog();
+        jLabel33 = new javax.swing.JLabel();
+        jSeparator13 = new javax.swing.JSeparator();
+        VerEquipos_Usuario_Dia = new javax.swing.JDialog();
+        btn_SalirVerEquiposUsuario = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tb_equiposusuario = new javax.swing.JTable();
+        jLabel34 = new javax.swing.JLabel();
+        cb_equiposusuario = new javax.swing.JComboBox<>();
+        btn_actualizartablaequiposusuario = new javax.swing.JButton();
+        jSeparator14 = new javax.swing.JSeparator();
         btn_admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_quinela = new javax.swing.JButton();
@@ -203,6 +215,8 @@ public class main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         Administracion_Dialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        Administracion_Dialog.setTitle("Administración");
+        Administracion_Dialog.setIconImage(null);
 
         jLabel3.setFont(new java.awt.Font("Agency FB", 0, 48)); // NOI18N
         jLabel3.setText("Administración");
@@ -582,6 +596,11 @@ public class main extends javax.swing.JFrame {
         btn_modificarjugador.setText("Modificar Jugador");
 
         btn_ModificarArbitro.setText("Modificar Arbitro");
+        btn_ModificarArbitro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ModificarArbitroMouseClicked(evt);
+            }
+        });
 
         btn_modificarentrenador.setText("Modificar Entrenador");
 
@@ -1292,16 +1311,12 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(43, 43, 43)
                 .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ResultadosQuinelaLayout.createSequentialGroup()
-                        .addComponent(txt_EquipoQGano, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(ResultadosQuinelaLayout.createSequentialGroup()
-                        .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_ApuestaRealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_MultiplicadorSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_PorcentajeGanancia, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_EquipoQAposto, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(300, Short.MAX_VALUE))))
+                    .addComponent(txt_EquipoQGano, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_ApuestaRealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_MultiplicadorSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_PorcentajeGanancia, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_EquipoQAposto, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ResultadosQuinelaLayout.setVerticalGroup(
             ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1429,6 +1444,121 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel33.setFont(new java.awt.Font("Agency FB", 0, 48)); // NOI18N
+        jLabel33.setText("Modificar Arbitro");
+
+        javax.swing.GroupLayout ModificarArbitro_DiaLayout = new javax.swing.GroupLayout(ModificarArbitro_Dia.getContentPane());
+        ModificarArbitro_Dia.getContentPane().setLayout(ModificarArbitro_DiaLayout);
+        ModificarArbitro_DiaLayout.setHorizontalGroup(
+            ModificarArbitro_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModificarArbitro_DiaLayout.createSequentialGroup()
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addGroup(ModificarArbitro_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator13))
+                .addGap(67, 67, 67))
+        );
+        ModificarArbitro_DiaLayout.setVerticalGroup(
+            ModificarArbitro_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModificarArbitro_DiaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(421, Short.MAX_VALUE))
+        );
+
+        btn_SalirVerEquiposUsuario.setText("Salir");
+        btn_SalirVerEquiposUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_SalirVerEquiposUsuarioMouseClicked(evt);
+            }
+        });
+
+        jLabel29.setFont(new java.awt.Font("Agency FB", 0, 48)); // NOI18N
+        jLabel29.setText("Equipos");
+
+        tb_equiposusuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre Jugador", "Edad", "Fecha Nacimiento"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane10.setViewportView(tb_equiposusuario);
+
+        jLabel34.setText("Equipo:");
+
+        btn_actualizartablaequiposusuario.setText("Actualizar");
+        btn_actualizartablaequiposusuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_actualizartablaequiposusuarioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout VerEquipos_Usuario_DiaLayout = new javax.swing.GroupLayout(VerEquipos_Usuario_Dia.getContentPane());
+        VerEquipos_Usuario_Dia.getContentPane().setLayout(VerEquipos_Usuario_DiaLayout);
+        VerEquipos_Usuario_DiaLayout.setHorizontalGroup(
+            VerEquipos_Usuario_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerEquipos_Usuario_DiaLayout.createSequentialGroup()
+                .addGroup(VerEquipos_Usuario_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerEquipos_Usuario_DiaLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_SalirVerEquiposUsuario))
+                    .addGroup(VerEquipos_Usuario_DiaLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
+                    .addGroup(VerEquipos_Usuario_DiaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel34)
+                        .addGap(27, 27, 27)
+                        .addComponent(cb_equiposusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_actualizartablaequiposusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(VerEquipos_Usuario_DiaLayout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addGroup(VerEquipos_Usuario_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        VerEquipos_Usuario_DiaLayout.setVerticalGroup(
+            VerEquipos_Usuario_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerEquipos_Usuario_DiaLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(VerEquipos_Usuario_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(cb_equiposusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_actualizartablaequiposusuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addComponent(btn_SalirVerEquiposUsuario)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quinela 2017");
 
@@ -1527,15 +1657,15 @@ public class main extends javax.swing.JFrame {
         if (torneo == null) {
             JOptionPane.showMessageDialog(null, "¡No existe ningun torneo!", "Error Torneo", JOptionPane.ERROR_MESSAGE);
         } else {
-            ((DefaultTableModel) tb_equipos.getModel()).setRowCount(0);
+            ((DefaultTableModel) tb_equiposusuario.getModel()).setRowCount(0);
             for (Equipo equipo : equipos) {
-                cb_equipos.addItem(equipo.getNombreEquipo());
+                cb_equiposusuario.addItem(equipo.getNombreEquipo());
             }//Fin del for
-            this.VisualizarEquipos_Dia.pack();
-            this.VisualizarEquipos_Dia.setModal(true);
-            this.VisualizarEquipos_Dia.setTitle("Equipos");
-            this.VisualizarEquipos_Dia.setLocationRelativeTo(null);
-            this.VisualizarEquipos_Dia.setVisible(true);
+            this.VerEquipos_Usuario_Dia.pack();
+            this.VerEquipos_Usuario_Dia.setModal(true);
+            this.VerEquipos_Usuario_Dia.setTitle("Equipos");
+            this.VerEquipos_Usuario_Dia.setLocationRelativeTo(null);
+            this.VerEquipos_Usuario_Dia.setVisible(true);
         }//Fin del if else
     }//GEN-LAST:event_btn_VerEquiposActionPerformed
     private void rb_EquipoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_EquipoAActionPerformed
@@ -1561,13 +1691,16 @@ public class main extends javax.swing.JFrame {
 
     private void btn_salirmodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirmodificarMouseClicked
         this.ModificarTorneo_Dia.setVisible(false);
+        this.Administracion_Dialog.setVisible(true);
     }//GEN-LAST:event_btn_salirmodificarMouseClicked
     private void btn_SalirVisualizarTorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarTorneoMouseClicked
+        this.Administracion_Dialog.setVisible(true);
         this.VisualizarTorneoMenu_Dia.setVisible(false);
     }//GEN-LAST:event_btn_SalirVisualizarTorneoMouseClicked
     private void btn_SalirVerEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVerEquiposMouseClicked
         cb_equipos.removeAllItems();
-        VisualizarEquipos_Dia.setVisible(false);
+        this.VisualizarTorneoMenu_Dia.setVisible(true);
+        this.VisualizarEquipos_Dia.setVisible(false);
     }//GEN-LAST:event_btn_SalirVerEquiposMouseClicked
     private void btn_actualizartablaequiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizartablaequiposMouseClicked
         ((DefaultTableModel) tb_equipos.getModel()).setRowCount(0);
@@ -1819,6 +1952,36 @@ public class main extends javax.swing.JFrame {
     private void btn_SalirVisualizacionTorneoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirVisualizacionTorneoUsuarioActionPerformed
         this.DialogTorneoUsuario.dispose();
     }//GEN-LAST:event_btn_SalirVisualizacionTorneoUsuarioActionPerformed
+
+    private void btn_ModificarArbitroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ModificarArbitroMouseClicked
+        
+        
+    }//GEN-LAST:event_btn_ModificarArbitroMouseClicked
+
+    private void btn_SalirVerEquiposUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVerEquiposUsuarioMouseClicked
+
+        this.JDialog_Participacion.setVisible(true);
+        this.VerEquipos_Usuario_Dia.setVisible(false);
+    }//GEN-LAST:event_btn_SalirVerEquiposUsuarioMouseClicked
+
+    private void btn_actualizartablaequiposusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizartablaequiposusuarioMouseClicked
+
+        ((DefaultTableModel) tb_equiposusuario.getModel()).setRowCount(0);
+        String eqelegido = String.valueOf(cb_equiposusuario.getSelectedItem());
+        int posicionEquipo = 0;
+        for (int i = 0; i < equipos.size(); i++) {
+            if (eqelegido.equals(equipos.get(i).getNombreEquipo())) {
+                posicionEquipo = i;
+                i = equipos.size();
+            }//Fin del if
+        }//Fin del for
+        DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+        for (Jugador jug : equipos.get(posicionEquipo).getJugadores()) {
+            DefaultTableModel model = ((DefaultTableModel) tb_equiposusuario.getModel());
+            Object[] row = {jug.getNombreJugador(), jug.getEdad(), dateformat.format(jug.getFechaNac())};
+            model.addRow(row);
+        }//Fin del for
+    }//GEN-LAST:event_btn_actualizartablaequiposusuarioMouseClicked
 
     //Terminados
     public void MetodoComboBoxJornadaA() {
@@ -2167,6 +2330,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog MenuApuestas;
     private javax.swing.JMenuItem MenuShowOptions;
     private javax.swing.JMenuItem MenuShowOptions1;
+    private javax.swing.JDialog ModificarArbitro_Dia;
     private javax.swing.JDialog ModificarTorneo_Dia;
     private javax.swing.JDialog ResultadosQuinela;
     private javax.swing.JTable TablaJornadaA;
@@ -2175,6 +2339,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTable TablaJornadaB;
     private javax.swing.JTable TablaJornadaBApuestas;
     private javax.swing.JTable TablaJornadaBUsuario;
+    private javax.swing.JDialog VerEquipos_Usuario_Dia;
     private javax.swing.JDialog VisualizarArbitros_Dia;
     private javax.swing.JDialog VisualizarEntrenadores_Dia;
     private javax.swing.JDialog VisualizarEquipos_Dia;
@@ -2191,6 +2356,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton btn_ResultadosJB;
     private javax.swing.JButton btn_SalirAdmin;
     private javax.swing.JButton btn_SalirVerEquipos;
+    private javax.swing.JButton btn_SalirVerEquiposUsuario;
     private javax.swing.JButton btn_SalirVisualizacionTorneo;
     private javax.swing.JButton btn_SalirVisualizacionTorneoUsuario;
     private javax.swing.JButton btn_SalirVisualizarArbitros;
@@ -2205,6 +2371,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton btn_Verequipos;
     private javax.swing.JButton btn_VisualizarTorneo;
     private javax.swing.JButton btn_actualizartablaequipos;
+    private javax.swing.JButton btn_actualizartablaequiposusuario;
     private javax.swing.JButton btn_admin;
     private javax.swing.JButton btn_modificarentrenador;
     private javax.swing.JButton btn_modificarjugador;
@@ -2215,6 +2382,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_MultiplicadorA;
     private javax.swing.JComboBox<String> cb_MultiplicadorB;
     private javax.swing.JComboBox<String> cb_equipos;
+    private javax.swing.JComboBox<String> cb_equiposusuario;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2237,10 +2405,13 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2255,6 +2426,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2267,6 +2439,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -2282,6 +2456,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTable tb_Arbitros;
     private javax.swing.JTable tb_entrenadores;
     private javax.swing.JTable tb_equipos;
+    private javax.swing.JTable tb_equiposusuario;
     private javax.swing.JTextField tf_MontoApuesta;
     private javax.swing.JTextField txt_ApuestaA;
     private javax.swing.JTextField txt_ApuestaB;
