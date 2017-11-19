@@ -14,8 +14,11 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class main extends javax.swing.JFrame {
 
@@ -147,6 +150,13 @@ public class main extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TablaJornadaAApuestas = new javax.swing.JTable();
+        jLabel17 = new javax.swing.JLabel();
+        cb_Apuestas = new javax.swing.JComboBox<>();
+        jLabel18 = new javax.swing.JLabel();
+        cb_EquiposJornadaA = new javax.swing.JComboBox<>();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        JMOMenuOpciones = new javax.swing.JMenu();
+        MenuShowOptions = new javax.swing.JMenuItem();
         DialogJornadaB = new javax.swing.JDialog();
         btn_admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -983,7 +993,34 @@ public class main extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        TablaJornadaAApuestas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaJornadaAApuestasMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(TablaJornadaAApuestas);
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel17.setText("Seleccione su apuesta");
+
+        cb_Apuestas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "$500", "$1000", "$1500", "$2000", "$5000", "$10000", "$50000", "$100000" }));
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel18.setText("Seleccione su equipo");
+
+        JMOMenuOpciones.setText("Opciones");
+
+        MenuShowOptions.setText("Ayuda");
+        MenuShowOptions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuShowOptionsActionPerformed(evt);
+            }
+        });
+        JMOMenuOpciones.add(MenuShowOptions);
+
+        jMenuBar2.add(JMOMenuOpciones);
+
+        DialogJornadaA.setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout DialogJornadaALayout = new javax.swing.GroupLayout(DialogJornadaA.getContentPane());
         DialogJornadaA.getContentPane().setLayout(DialogJornadaALayout);
@@ -992,21 +1029,37 @@ public class main extends javax.swing.JFrame {
             .addGroup(DialogJornadaALayout.createSequentialGroup()
                 .addGroup(DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DialogJornadaALayout.createSequentialGroup()
-                        .addGap(238, 238, 238)
+                        .addGap(267, 267, 267)
                         .addComponent(jLabel16))
                     .addGroup(DialogJornadaALayout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(312, Short.MAX_VALUE))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addGroup(DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb_Apuestas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cb_EquiposJornadaA, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         DialogJornadaALayout.setVerticalGroup(
             DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DialogJornadaALayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogJornadaALayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_Apuestas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_EquiposJornadaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DialogJornadaBLayout = new javax.swing.GroupLayout(DialogJornadaB.getContentPane());
@@ -1206,20 +1259,26 @@ public class main extends javax.swing.JFrame {
 
             for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
                 DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
-
+                double valor = p.getA().getPeso() - p.getB().getPeso();
+                if (valor < 0) {
+                    valor *= -1;
+                }//FIn del if
                 Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
+                    valor};
                 model.addRow(row);
-            }
+            }//Fin del for
 
             for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
                 DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
+                double valor = p.getA().getPeso() - p.getB().getPeso();
+                if (valor < 0) {
+                    valor *= -1;
+                }//FIn del if
                 Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
+                    valor};
                 model.addRow(row);
-            }
-
-        }
+            }//Fin del for
+        }//Fin del if else
     }//GEN-LAST:event_btn_VerJornadasMouseClicked
 
     private void btn_SalirVisualizarTorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarTorneoMouseClicked
@@ -1355,17 +1414,20 @@ public class main extends javax.swing.JFrame {
         } else {
             this.DialogJornadaA.pack();
             this.DialogJornadaA.setModal(true);
-            this.DialogJornadaA.setTitle("Jornada");
+            this.DialogJornadaA.setTitle("Jornada A");
             this.DialogJornadaA.setLocationRelativeTo(null);
             ((DefaultTableModel) TablaJornadaAApuestas.getModel()).setRowCount(0);
 
             for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
                 DefaultTableModel model = ((DefaultTableModel) TablaJornadaAApuestas.getModel());
+                double valor = p.getA().getPeso() - p.getB().getPeso();
+                if (valor < 0) {
+                    valor *= -1;
+                }//FIn del if
                 Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
+                    valor};
                 model.addRow(row);
             }//Fin del for
-
             this.DialogJornadaA.setVisible(true);
         }//Fin  del if else
     }//GEN-LAST:event_btn_JornadaAActionPerformed
@@ -1381,6 +1443,36 @@ public class main extends javax.swing.JFrame {
             this.DialogJornadaB.setVisible(true);
         }//Fin del if else
     }//GEN-LAST:event_btn_JornadaBActionPerformed
+
+    private void MenuShowOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuShowOptionsActionPerformed
+        JOptionPane.showMessageDialog(null, "Para crear una apuesta debes de:\n"
+                + "1. Presionar la fila en la que se encuentran los equipos que jugaran el partido.\n"
+                + "2. Seleccionar tu monto de oferta.\n"
+                + "3. Seleccionar el equipo que crees que va a ganar.\n"
+                + "4. ¡Mira tus resultados!", "Ayuda", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_MenuShowOptionsActionPerformed
+
+    private void TablaJornadaAApuestasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaJornadaAApuestasMouseClicked
+        MetodoComboBox();
+
+    }//GEN-LAST:event_TablaJornadaAApuestasMouseClicked
+
+    public void MetodoComboBox() {
+        int indice = this.TablaJornadaAApuestas.getSelectedRow();
+        TableModel modeloMesa = TablaJornadaAApuestas.getModel();
+        String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
+        String equipo2 = modeloMesa.getValueAt(indice, 2).toString();
+        // getting exiting combo box model
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cb_EquiposJornadaA.getModel();
+        // removing old data
+        model.removeAllElements();
+        String[] arreglo = {equipo1, equipo2};
+        for (String item : arreglo) {
+            model.addElement(item);
+        }//Fin del for
+        // setting model with new data
+        cb_EquiposJornadaA.setModel(model);
+    }
 
     public void CrearEquipos() {
 
@@ -1637,8 +1729,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog Dialog_IngresarApuesta;
     private javax.swing.JDialog Dialog_SelecJornada;
     private javax.swing.JDialog JDialog_Participacion;
+    private javax.swing.JMenu JMOMenuOpciones;
     private javax.swing.JLabel LabelJornadaQuinela;
     private javax.swing.JDialog MenuApuestas;
+    private javax.swing.JMenuItem MenuShowOptions;
     private javax.swing.JDialog ModificarTorneo_Dia;
     private javax.swing.JTable TablaJornadaA;
     private javax.swing.JTable TablaJornadaAApuestas;
@@ -1675,6 +1769,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton btn_modificarjugador;
     private javax.swing.JButton btn_quinela;
     private javax.swing.JButton btn_salirmodificar;
+    private javax.swing.JComboBox<String> cb_Apuestas;
+    private javax.swing.JComboBox<String> cb_EquiposJornadaA;
     private javax.swing.JComboBox<String> cb_equipos;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -1685,6 +1781,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1696,6 +1794,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
