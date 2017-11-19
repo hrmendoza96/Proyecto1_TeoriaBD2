@@ -1294,39 +1294,33 @@ public class main extends javax.swing.JFrame {
         this.Administracion_Dialog.setLocationRelativeTo(null);
         this.Administracion_Dialog.setVisible(true);
     }//GEN-LAST:event_btn_adminMouseClicked
-
     private void btn_VisualizarTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VisualizarTorneoActionPerformed
         this.VisualizarTorneoMenu_Dia.pack();
         this.VisualizarTorneoMenu_Dia.setModal(true);
         this.VisualizarTorneoMenu_Dia.setLocationRelativeTo(null);
         this.VisualizarTorneoMenu_Dia.setVisible(true);
     }//GEN-LAST:event_btn_VisualizarTorneoActionPerformed
-
     private void btn_BorrarTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BorrarTorneoActionPerformed
-        torneo = null;
-        JOptionPane.showMessageDialog(null, "¡El torneo se ha borrado exitosamente!", "Torneo Borrado", JOptionPane.INFORMATION_MESSAGE);
+        if (torneo != null) {
+            torneo = null;
+            JOptionPane.showMessageDialog(null, "¡El torneo se ha borrado exitosamente!", "Torneo Borrado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "¡No hay ningun torneo que borrar!", "Torneo", JOptionPane.INFORMATION_MESSAGE);
+        }//Fin del if
     }//GEN-LAST:event_btn_BorrarTorneoActionPerformed
-
     private void btn_CrearTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearTorneoActionPerformed
         CrearEquipos();
-
         Collections.shuffle(equipos); //randomizar el orden de los equipos para asignarles partidos
-
         CrearPartidos();
-
         //  RedondearPesos();
         JOptionPane.showMessageDialog(null, "¡El torneo se ha creado aleatoriamente!", "Torneo Creado", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_CrearTorneoActionPerformed
-
     private void btn_SalirVisualizacionTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirVisualizacionTorneoActionPerformed
         this.VisualizarJornadas_Dia.setVisible(false);
-        this.VisualizarTorneoMenu_Dia.setVisible(true);
     }//GEN-LAST:event_btn_SalirVisualizacionTorneoActionPerformed
-
     private void btn_SalirAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirAdminActionPerformed
         this.Administracion_Dialog.setVisible(false);
     }//GEN-LAST:event_btn_SalirAdminActionPerformed
-
     private void btn_VerEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerEquiposActionPerformed
         if (torneo == null) {
             JOptionPane.showMessageDialog(null, "¡No existe ningun torneo!", "Error Torneo", JOptionPane.ERROR_MESSAGE);
@@ -1355,8 +1349,6 @@ public class main extends javax.swing.JFrame {
             this.VisualizarJornadas_Dia.pack();
             this.VisualizarJornadas_Dia.setModal(true);
             this.VisualizarJornadas_Dia.setVisible(true);
-            this.Administracion_Dialog.setVisible(false);
-            this.JDialog_Participacion.setVisible(false);
             ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
             ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
             for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
@@ -1382,18 +1374,16 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_quinelaActionPerformed
 
     private void btn_ModificarTorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ModificarTorneoMouseClicked
-        this.Administracion_Dialog.setVisible(false);
         this.ModificarTorneo_Dia.pack();
+        this.ModificarTorneo_Dia.setModal(true);
         this.ModificarTorneo_Dia.setLocationRelativeTo(null);
         this.ModificarTorneo_Dia.setVisible(true);
     }//GEN-LAST:event_btn_ModificarTorneoMouseClicked
     private void btn_salirmodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirmodificarMouseClicked
         this.ModificarTorneo_Dia.setVisible(false);
-        this.Administracion_Dialog.setVisible(true);
     }//GEN-LAST:event_btn_salirmodificarMouseClicked
     private void btn_SalirVisualizarTorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarTorneoMouseClicked
         this.VisualizarTorneoMenu_Dia.setVisible(false);
-        this.Administracion_Dialog.setVisible(true);
     }//GEN-LAST:event_btn_SalirVisualizarTorneoMouseClicked
     private void btn_SalirVerEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVerEquiposMouseClicked
         this.VisualizarEquipos_Dia.setVisible(false);
