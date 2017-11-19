@@ -175,6 +175,19 @@ public class main extends javax.swing.JFrame {
         jMenuBar3 = new javax.swing.JMenuBar();
         JMOMenuOpciones1 = new javax.swing.JMenu();
         MenuShowOptions1 = new javax.swing.JMenuItem();
+        ResultadosQuinela = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        txt_EquipoQAposto = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        txt_EquipoQGano = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        txt_ApuestaRealizada = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        txt_MultiplicadorSeleccionado = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        txt_PorcentajeGanancia = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        txt_ResultadoFinal = new javax.swing.JTextField();
         btn_admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_quinela = new javax.swing.JButton();
@@ -968,22 +981,23 @@ public class main extends javax.swing.JFrame {
         Dialog_SelecJornadaLayout.setHorizontalGroup(
             Dialog_SelecJornadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Dialog_SelecJornadaLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(LabelJornadaQuinela, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dialog_SelecJornadaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(Dialog_SelecJornadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_JornadaA, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                    .addComponent(btn_JornadaB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(126, 126, 126))
+                .addContainerGap(85, Short.MAX_VALUE)
+                .addGroup(Dialog_SelecJornadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dialog_SelecJornadaLayout.createSequentialGroup()
+                        .addGroup(Dialog_SelecJornadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_JornadaA, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                            .addComponent(btn_JornadaB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(126, 126, 126))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dialog_SelecJornadaLayout.createSequentialGroup()
+                        .addComponent(LabelJornadaQuinela, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
         );
         Dialog_SelecJornadaLayout.setVerticalGroup(
             Dialog_SelecJornadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Dialog_SelecJornadaLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(58, 58, 58)
                 .addComponent(LabelJornadaQuinela)
-                .addGap(42, 42, 42)
+                .addGap(47, 47, 47)
                 .addComponent(btn_JornadaA, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(btn_JornadaB, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1224,6 +1238,104 @@ public class main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(btn_ResultadosJB)
                 .addGap(16, 16, 16))
+        );
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Equipo por el cual apostó:");
+
+        txt_EquipoQAposto.setEnabled(false);
+
+        jLabel25.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Equipo que ganó el partido:");
+
+        txt_EquipoQGano.setEnabled(false);
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("Apuesta realizada:");
+
+        txt_ApuestaRealizada.setEnabled(false);
+
+        jLabel27.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("Multiplicador Seleccionado:");
+
+        txt_MultiplicadorSeleccionado.setEnabled(false);
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Porcentaje de Ganancia:");
+
+        txt_PorcentajeGanancia.setEnabled(false);
+
+        jLabel29.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        jLabel29.setText("Resultado Final");
+
+        txt_ResultadoFinal.setEnabled(false);
+
+        javax.swing.GroupLayout ResultadosQuinelaLayout = new javax.swing.GroupLayout(ResultadosQuinela.getContentPane());
+        ResultadosQuinela.getContentPane().setLayout(ResultadosQuinelaLayout);
+        ResultadosQuinelaLayout.setHorizontalGroup(
+            ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResultadosQuinelaLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_ApuestaRealizada, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_MultiplicadorSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_PorcentajeGanancia, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ResultadosQuinelaLayout.createSequentialGroup()
+                        .addComponent(txt_EquipoQGano, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ResultadosQuinelaLayout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(txt_ResultadoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResultadosQuinelaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel29)
+                                .addGap(54, 54, 54))))
+                    .addComponent(txt_EquipoQAposto, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        ResultadosQuinelaLayout.setVerticalGroup(
+            ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResultadosQuinelaLayout.createSequentialGroup()
+                .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ResultadosQuinelaLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel24)
+                            .addComponent(txt_EquipoQAposto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(txt_EquipoQGano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(ResultadosQuinelaLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel29)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_ResultadoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(8, 8, 8)
+                .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(txt_ApuestaRealizada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(txt_MultiplicadorSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(ResultadosQuinelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(txt_PorcentajeGanancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1592,10 +1704,22 @@ public class main extends javax.swing.JFrame {
 
 
     private void btn_ResultadosJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ResultadosJBActionPerformed
-
+        this.ResultadosQuinela.pack();
+        this.ResultadosQuinela.setModal(true);
+        this.ResultadosQuinela.setTitle("Resultados");
+        this.ResultadosQuinela.setLocationRelativeTo(null);
+        txt_EquipoQAposto.setText(cb_EquiposJornadaB.getSelectedItem().toString());
+        txt_ApuestaRealizada.setText(txt_ApuestaB.getText());
+        txt_MultiplicadorSeleccionado.setText(cb_MultiplicadorB.getSelectedItem().toString());
+        
+        this.ResultadosQuinela.setVisible(true);
     }//GEN-LAST:event_btn_ResultadosJBActionPerformed
     private void btn_ResultadosJAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ResultadosJAActionPerformed
-
+        this.ResultadosQuinela.pack();
+        this.ResultadosQuinela.setModal(true);
+        this.ResultadosQuinela.setTitle("Resultados");
+        this.ResultadosQuinela.setLocationRelativeTo(null);
+        this.ResultadosQuinela.setVisible(true);
     }//GEN-LAST:event_btn_ResultadosJAActionPerformed
 
     //Terminados
@@ -1894,6 +2018,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuShowOptions;
     private javax.swing.JMenuItem MenuShowOptions1;
     private javax.swing.JDialog ModificarTorneo_Dia;
+    private javax.swing.JDialog ResultadosQuinela;
     private javax.swing.JTable TablaJornadaA;
     private javax.swing.JTable TablaJornadaAApuestas;
     private javax.swing.JTable TablaJornadaB;
@@ -1954,6 +2079,12 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1996,5 +2127,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_MontoApuesta;
     private javax.swing.JTextField txt_ApuestaA;
     private javax.swing.JTextField txt_ApuestaB;
+    private javax.swing.JTextField txt_ApuestaRealizada;
+    private javax.swing.JTextField txt_EquipoQAposto;
+    private javax.swing.JTextField txt_EquipoQGano;
+    private javax.swing.JTextField txt_MultiplicadorSeleccionado;
+    private javax.swing.JTextField txt_PorcentajeGanancia;
+    private javax.swing.JTextField txt_ResultadoFinal;
     // End of variables declaration//GEN-END:variables
 }
