@@ -1,5 +1,6 @@
 package main;
 
+import com.sun.glass.events.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -151,13 +152,27 @@ public class main extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         TablaJornadaAApuestas = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
-        cb_Apuestas = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         cb_EquiposJornadaA = new javax.swing.JComboBox<>();
+        txt_ApuestaA = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        cb_MultiplicadorA = new javax.swing.JComboBox<>();
         jMenuBar2 = new javax.swing.JMenuBar();
         JMOMenuOpciones = new javax.swing.JMenu();
         MenuShowOptions = new javax.swing.JMenuItem();
         DialogJornadaB = new javax.swing.JDialog();
+        jLabel20 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        TablaJornadaBApuestas = new javax.swing.JTable();
+        jLabel21 = new javax.swing.JLabel();
+        txt_ApuestaB = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        cb_EquiposJornadaB = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        cb_MultiplicadorB = new javax.swing.JComboBox<>();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        JMOMenuOpciones1 = new javax.swing.JMenu();
+        MenuShowOptions1 = new javax.swing.JMenuItem();
         btn_admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_quinela = new javax.swing.JButton();
@@ -672,30 +687,30 @@ public class main extends javax.swing.JFrame {
         jLabel11.setText("Visualizar Torneo");
 
         btn_VerJornadas.setText("Ver Jornadas");
-        btn_VerJornadas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_VerJornadasMouseClicked(evt);
+        btn_VerJornadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VerJornadasActionPerformed(evt);
             }
         });
 
         btn_Verequipos.setText("Ver Equipos");
-        btn_Verequipos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_VerequiposMouseClicked(evt);
+        btn_Verequipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VerequiposActionPerformed(evt);
             }
         });
 
         btn_VerArbitros.setText("Ver Arbitros");
-        btn_VerArbitros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_VerArbitrosMouseClicked(evt);
+        btn_VerArbitros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VerArbitrosActionPerformed(evt);
             }
         });
 
         btn_VerEntrenadores.setText("Ver Entrenadores");
-        btn_VerEntrenadores.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_VerEntrenadoresMouseClicked(evt);
+        btn_VerEntrenadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VerEntrenadoresActionPerformed(evt);
             }
         });
 
@@ -1001,12 +1016,21 @@ public class main extends javax.swing.JFrame {
         jScrollPane6.setViewportView(TablaJornadaAApuestas);
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel17.setText("Seleccione su apuesta");
-
-        cb_Apuestas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "$500", "$1000", "$1500", "$2000", "$5000", "$10000", "$50000", "$100000" }));
+        jLabel17.setText("Seleccione su apuesta (Hasta 100,000)");
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel18.setText("Seleccione su equipo");
+
+        txt_ApuestaA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_ApuestaAKeyTyped(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel19.setText("Seleccione su multiplicador");
+
+        cb_MultiplicadorA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "15", "30" }));
 
         JMOMenuOpciones.setText("Opciones");
 
@@ -1038,10 +1062,12 @@ public class main extends javax.swing.JFrame {
                         .addGroup(DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cb_Apuestas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(cb_EquiposJornadaA, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                            .addComponent(cb_EquiposJornadaA, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_ApuestaA, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_MultiplicadorA, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DialogJornadaALayout.setVerticalGroup(
             DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1053,24 +1079,121 @@ public class main extends javax.swing.JFrame {
                     .addGroup(DialogJornadaALayout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(18, 18, 18)
-                        .addComponent(cb_Apuestas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                        .addComponent(txt_ApuestaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
                         .addComponent(jLabel18)
                         .addGap(18, 18, 18)
-                        .addComponent(cb_EquiposJornadaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cb_EquiposJornadaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_MultiplicadorA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("Jornada B");
+
+        TablaJornadaBApuestas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Equipo Visita", "Peso Visita", "Equipo Casa", "Peso Casa", "Diferencia"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        TablaJornadaBApuestas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaJornadaBApuestasMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(TablaJornadaBApuestas);
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel21.setText("Seleccione su apuesta (Hasta 100,000)");
+
+        txt_ApuestaB.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_ApuestaBKeyTyped(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel22.setText("Seleccione su equipo");
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel23.setText("Seleccione su multiplicador");
+
+        cb_MultiplicadorB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "15", "30" }));
+
+        JMOMenuOpciones1.setText("Opciones");
+
+        MenuShowOptions1.setText("Ayuda");
+        MenuShowOptions1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuShowOptions1ActionPerformed(evt);
+            }
+        });
+        JMOMenuOpciones1.add(MenuShowOptions1);
+
+        jMenuBar3.add(JMOMenuOpciones1);
+
+        DialogJornadaB.setJMenuBar(jMenuBar3);
 
         javax.swing.GroupLayout DialogJornadaBLayout = new javax.swing.GroupLayout(DialogJornadaB.getContentPane());
         DialogJornadaB.getContentPane().setLayout(DialogJornadaBLayout);
         DialogJornadaBLayout.setHorizontalGroup(
             DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(DialogJornadaBLayout.createSequentialGroup()
+                .addGroup(DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogJornadaBLayout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(jLabel20))
+                    .addGroup(DialogJornadaBLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addGroup(DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cb_EquiposJornadaB, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_ApuestaB, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_MultiplicadorB, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DialogJornadaBLayout.setVerticalGroup(
             DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(DialogJornadaBLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogJornadaBLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_ApuestaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_EquiposJornadaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_MultiplicadorB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1171,7 +1294,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_SalirVisualizacionTorneoActionPerformed
 
     private void btn_SalirAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirAdminActionPerformed
-        this.Administracion_Dialog.dispose();
+        this.Administracion_Dialog.setVisible(false);
     }//GEN-LAST:event_btn_SalirAdminActionPerformed
 
     private void btn_VerEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerEquiposActionPerformed
@@ -1243,7 +1366,155 @@ public class main extends javax.swing.JFrame {
         this.Administracion_Dialog.setVisible(true);
     }//GEN-LAST:event_btn_salirmodificarMouseClicked
 
-    private void btn_VerJornadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VerJornadasMouseClicked
+    private void btn_SalirVisualizarTorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarTorneoMouseClicked
+        this.VisualizarTorneoMenu_Dia.setVisible(false);
+        this.Administracion_Dialog.setVisible(true);
+    }//GEN-LAST:event_btn_SalirVisualizarTorneoMouseClicked
+
+    private void btn_SalirVerEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVerEquiposMouseClicked
+        this.VisualizarEquipos_Dia.setVisible(false);
+        this.VisualizarTorneoMenu_Dia.setVisible(true);
+        cb_equipos.removeAllItems();
+    }//GEN-LAST:event_btn_SalirVerEquiposMouseClicked
+
+    private void btn_actualizartablaequiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizartablaequiposMouseClicked
+
+        ((DefaultTableModel) tb_equipos.getModel()).setRowCount(0);
+
+        String eqelegido = String.valueOf(cb_equipos.getSelectedItem());
+
+        System.out.println("");
+
+        int posicionEquipo = 0;
+
+        for (int i = 0; i < equipos.size(); i++) {
+            if (eqelegido.equals(equipos.get(i).getNombreEquipo())) {
+                posicionEquipo = i;
+                i = equipos.size();
+            }
+        }
+
+        DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+
+        for (Jugador jug : equipos.get(posicionEquipo).getJugadores()) {
+            DefaultTableModel model = ((DefaultTableModel) tb_equipos.getModel());
+            Object[] row = {jug.getNombreJugador(), jug.getEdad(), dateformat.format(jug.getFechaNac()), jug.getPesoJugador()};
+            model.addRow(row);
+        }
+
+    }//GEN-LAST:event_btn_actualizartablaequiposMouseClicked
+
+    private void btn_SalirVisualizarEntrenadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarEntrenadoresMouseClicked
+        this.VisualizarEntrenadores_Dia.setVisible(false);
+        this.VisualizarTorneoMenu_Dia.setVisible(true);
+    }//GEN-LAST:event_btn_SalirVisualizarEntrenadoresMouseClicked
+
+    private void btn_SalirVisualizarArbitrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarArbitrosMouseClicked
+        this.VisualizarArbitros_Dia.setVisible(false);
+        this.VisualizarTorneoMenu_Dia.setVisible(true);
+    }//GEN-LAST:event_btn_SalirVisualizarArbitrosMouseClicked
+
+    private void btn_QuinelaDeJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuinelaDeJornadaActionPerformed
+        this.Dialog_SelecJornada.pack();
+        this.Dialog_SelecJornada.setModal(true);
+        this.Dialog_SelecJornada.setTitle("Jornada");
+        this.Dialog_SelecJornada.setLocationRelativeTo(null);
+        this.Dialog_SelecJornada.setVisible(true);
+    }//GEN-LAST:event_btn_QuinelaDeJornadaActionPerformed
+
+    private void btn_JornadaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_JornadaAActionPerformed
+        if (torneo == null) {
+            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.DialogJornadaA.pack();
+            this.DialogJornadaA.setModal(true);
+            this.DialogJornadaA.setTitle("Jornada A");
+            this.DialogJornadaA.setLocationRelativeTo(null);
+            ((DefaultTableModel) TablaJornadaAApuestas.getModel()).setRowCount(0);
+            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaAApuestas.getModel());
+                double valor = p.getA().getPeso() - p.getB().getPeso();
+                if (valor < 0) {
+                    valor *= -1;
+                }//FIn del if
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    valor};
+                model.addRow(row);
+            }//Fin del for
+            this.DialogJornadaA.setVisible(true);
+        }//Fin  del if else
+    }//GEN-LAST:event_btn_JornadaAActionPerformed
+
+    private void btn_JornadaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_JornadaBActionPerformed
+        if (torneo == null) {
+            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.DialogJornadaB.pack();
+            this.DialogJornadaB.setModal(true);
+            this.DialogJornadaB.setTitle("Jornada");
+            this.DialogJornadaB.setLocationRelativeTo(null);
+            ((DefaultTableModel) TablaJornadaBApuestas.getModel()).setRowCount(0);
+            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaBApuestas.getModel());
+                double valor = p.getA().getPeso() - p.getB().getPeso();
+                if (valor < 0) {
+                    valor *= -1;
+                }//FIn del if
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    valor};
+                model.addRow(row);
+            }//Fin del for
+            this.DialogJornadaB.setVisible(true);
+        }//Fin del if else
+    }//GEN-LAST:event_btn_JornadaBActionPerformed
+
+    private void MenuShowOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuShowOptionsActionPerformed
+        JOptionPane.showMessageDialog(null, "Para crear una apuesta debes de:\n"
+                + "1. Presionar la fila en la que se encuentran los equipos que jugaran el partido.\n"
+                + "2. Seleccionar tu monto de oferta.\n"
+                + "3. Seleccionar el equipo que crees que va a ganar.\n"
+                + "4. Seleccionar su multiplicador.\n"
+                + "5. ¡Mira tus resultados!", "Ayuda", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_MenuShowOptionsActionPerformed
+
+    private void TablaJornadaAApuestasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaJornadaAApuestasMouseClicked
+        MetodoComboBoxJornadaA();
+    }//GEN-LAST:event_TablaJornadaAApuestasMouseClicked
+
+    private void txt_ApuestaAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ApuestaAKeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c)) || c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE) {
+            evt.consume();
+        }//Fin del if
+        if (txt_ApuestaA.getText().length() > 5) {
+            evt.consume();
+        }//Fin del if
+    }//GEN-LAST:event_txt_ApuestaAKeyTyped
+
+    private void MenuShowOptions1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuShowOptions1ActionPerformed
+        JOptionPane.showMessageDialog(null, "Para crear una apuesta debes de:\n"
+                + "1. Presionar la fila en la que se encuentran los equipos que jugaran el partido.\n"
+                + "2. Seleccionar tu monto de oferta.\n"
+                + "3. Seleccionar el equipo que crees que va a ganar.\n"
+                + "4. Seleccionar su multiplicador.\n"
+                + "5. ¡Mira tus resultados!", "Ayuda", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_MenuShowOptions1ActionPerformed
+
+    private void TablaJornadaBApuestasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaJornadaBApuestasMouseClicked
+        MetodoComboBoxJornadaB();
+    }//GEN-LAST:event_TablaJornadaBApuestasMouseClicked
+
+    private void txt_ApuestaBKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ApuestaBKeyTyped
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c)) || c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE) {
+            evt.consume();
+        }//Fin del if
+        if (txt_ApuestaB.getText().length() > 5) {
+            evt.consume();
+        }//Fin del if
+    }//GEN-LAST:event_txt_ApuestaBKeyTyped
+
+    private void btn_VerJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerJornadasActionPerformed
         if (torneo == null) {
             JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
 
@@ -1279,21 +1550,9 @@ public class main extends javax.swing.JFrame {
                 model.addRow(row);
             }//Fin del for
         }//Fin del if else
-    }//GEN-LAST:event_btn_VerJornadasMouseClicked
+    }//GEN-LAST:event_btn_VerJornadasActionPerformed
 
-    private void btn_SalirVisualizarTorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarTorneoMouseClicked
-        this.VisualizarTorneoMenu_Dia.setVisible(false);
-        this.Administracion_Dialog.setVisible(true);
-    }//GEN-LAST:event_btn_SalirVisualizarTorneoMouseClicked
-
-    private void btn_SalirVerEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVerEquiposMouseClicked
-        this.VisualizarEquipos_Dia.setVisible(false);
-        this.VisualizarTorneoMenu_Dia.setVisible(true);
-        cb_equipos.removeAllItems();
-    }//GEN-LAST:event_btn_SalirVerEquiposMouseClicked
-
-    private void btn_VerequiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VerequiposMouseClicked
-
+    private void btn_VerequiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerequiposActionPerformed
         if (torneo == null) {
             JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
 
@@ -1310,37 +1569,9 @@ public class main extends javax.swing.JFrame {
             this.VisualizarEquipos_Dia.setVisible(true);
             this.VisualizarTorneoMenu_Dia.setVisible(false);
         }
-    }//GEN-LAST:event_btn_VerequiposMouseClicked
+    }//GEN-LAST:event_btn_VerequiposActionPerformed
 
-    private void btn_actualizartablaequiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizartablaequiposMouseClicked
-
-        ((DefaultTableModel) tb_equipos.getModel()).setRowCount(0);
-
-        String eqelegido = String.valueOf(cb_equipos.getSelectedItem());
-
-        System.out.println("");
-
-        int posicionEquipo = 0;
-
-        for (int i = 0; i < equipos.size(); i++) {
-            if (eqelegido.equals(equipos.get(i).getNombreEquipo())) {
-                posicionEquipo = i;
-                i = equipos.size();
-            }
-        }
-
-        DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
-
-        for (Jugador jug : equipos.get(posicionEquipo).getJugadores()) {
-            DefaultTableModel model = ((DefaultTableModel) tb_equipos.getModel());
-            Object[] row = {jug.getNombreJugador(), jug.getEdad(), dateformat.format(jug.getFechaNac()), jug.getPesoJugador()};
-            model.addRow(row);
-        }
-
-    }//GEN-LAST:event_btn_actualizartablaequiposMouseClicked
-
-    private void btn_VerEntrenadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VerEntrenadoresMouseClicked
-
+    private void btn_VerEntrenadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerEntrenadoresActionPerformed
         if (torneo == null) {
             JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
 
@@ -1361,15 +1592,9 @@ public class main extends javax.swing.JFrame {
             this.VisualizarEntrenadores_Dia.setVisible(true);
             this.VisualizarTorneoMenu_Dia.setVisible(false);
         }
-    }//GEN-LAST:event_btn_VerEntrenadoresMouseClicked
+    }//GEN-LAST:event_btn_VerEntrenadoresActionPerformed
 
-    private void btn_SalirVisualizarEntrenadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarEntrenadoresMouseClicked
-        this.VisualizarEntrenadores_Dia.setVisible(false);
-        this.VisualizarTorneoMenu_Dia.setVisible(true);
-    }//GEN-LAST:event_btn_SalirVisualizarEntrenadoresMouseClicked
-
-    private void btn_VerArbitrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VerArbitrosMouseClicked
-
+    private void btn_VerArbitrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerArbitrosActionPerformed
         if (torneo == null) {
             JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
 
@@ -1393,77 +1618,32 @@ public class main extends javax.swing.JFrame {
             this.VisualizarArbitros_Dia.setVisible(true);
             this.VisualizarTorneoMenu_Dia.setVisible(false);
         }
-    }//GEN-LAST:event_btn_VerArbitrosMouseClicked
+    }//GEN-LAST:event_btn_VerArbitrosActionPerformed
 
-    private void btn_SalirVisualizarArbitrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarArbitrosMouseClicked
-        this.VisualizarArbitros_Dia.setVisible(false);
-        this.VisualizarTorneoMenu_Dia.setVisible(true);
-    }//GEN-LAST:event_btn_SalirVisualizarArbitrosMouseClicked
-
-    private void btn_QuinelaDeJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuinelaDeJornadaActionPerformed
-        this.Dialog_SelecJornada.pack();
-        this.Dialog_SelecJornada.setModal(true);
-        this.Dialog_SelecJornada.setTitle("Jornada");
-        this.Dialog_SelecJornada.setLocationRelativeTo(null);
-        this.Dialog_SelecJornada.setVisible(true);
-    }//GEN-LAST:event_btn_QuinelaDeJornadaActionPerformed
-
-    private void btn_JornadaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_JornadaAActionPerformed
-        if (torneo == null) {
-            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
-        } else {
-            this.DialogJornadaA.pack();
-            this.DialogJornadaA.setModal(true);
-            this.DialogJornadaA.setTitle("Jornada A");
-            this.DialogJornadaA.setLocationRelativeTo(null);
-            ((DefaultTableModel) TablaJornadaAApuestas.getModel()).setRowCount(0);
-
-            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaAApuestas.getModel());
-                double valor = p.getA().getPeso() - p.getB().getPeso();
-                if (valor < 0) {
-                    valor *= -1;
-                }//FIn del if
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    valor};
-                model.addRow(row);
-            }//Fin del for
-            this.DialogJornadaA.setVisible(true);
-        }//Fin  del if else
-    }//GEN-LAST:event_btn_JornadaAActionPerformed
-
-    private void btn_JornadaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_JornadaBActionPerformed
-        if (torneo == null) {
-            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
-        } else {
-            this.DialogJornadaB.pack();
-            this.DialogJornadaB.setModal(true);
-            this.DialogJornadaB.setTitle("Jornada");
-            this.DialogJornadaB.setLocationRelativeTo(null);
-            this.DialogJornadaB.setVisible(true);
-        }//Fin del if else
-    }//GEN-LAST:event_btn_JornadaBActionPerformed
-
-    private void MenuShowOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuShowOptionsActionPerformed
-        JOptionPane.showMessageDialog(null, "Para crear una apuesta debes de:\n"
-                + "1. Presionar la fila en la que se encuentran los equipos que jugaran el partido.\n"
-                + "2. Seleccionar tu monto de oferta.\n"
-                + "3. Seleccionar el equipo que crees que va a ganar.\n"
-                + "4. ¡Mira tus resultados!", "Ayuda", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_MenuShowOptionsActionPerformed
-
-    private void TablaJornadaAApuestasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaJornadaAApuestasMouseClicked
-        MetodoComboBox();
-
-    }//GEN-LAST:event_TablaJornadaAApuestasMouseClicked
-
-    public void MetodoComboBox() {
+    public void MetodoComboBoxJornadaA() {
         int indice = this.TablaJornadaAApuestas.getSelectedRow();
         TableModel modeloMesa = TablaJornadaAApuestas.getModel();
         String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
         String equipo2 = modeloMesa.getValueAt(indice, 2).toString();
         // getting exiting combo box model
         DefaultComboBoxModel model = (DefaultComboBoxModel) cb_EquiposJornadaA.getModel();
+        // removing old data
+        model.removeAllElements();
+        String[] arreglo = {equipo1, equipo2};
+        for (String item : arreglo) {
+            model.addElement(item);
+        }//Fin del for
+        // setting model with new data
+        cb_EquiposJornadaA.setModel(model);
+    }//Fin del metodo
+
+    public void MetodoComboBoxJornadaB() {
+        int indice = this.TablaJornadaBApuestas.getSelectedRow();
+        TableModel modeloMesa = TablaJornadaBApuestas.getModel();
+        String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
+        String equipo2 = modeloMesa.getValueAt(indice, 2).toString();
+        // getting exiting combo box model
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cb_EquiposJornadaB.getModel();
         // removing old data
         model.removeAllElements();
         String[] arreglo = {equipo1, equipo2};
@@ -1730,13 +1910,16 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog Dialog_SelecJornada;
     private javax.swing.JDialog JDialog_Participacion;
     private javax.swing.JMenu JMOMenuOpciones;
+    private javax.swing.JMenu JMOMenuOpciones1;
     private javax.swing.JLabel LabelJornadaQuinela;
     private javax.swing.JDialog MenuApuestas;
     private javax.swing.JMenuItem MenuShowOptions;
+    private javax.swing.JMenuItem MenuShowOptions1;
     private javax.swing.JDialog ModificarTorneo_Dia;
     private javax.swing.JTable TablaJornadaA;
     private javax.swing.JTable TablaJornadaAApuestas;
     private javax.swing.JTable TablaJornadaB;
+    private javax.swing.JTable TablaJornadaBApuestas;
     private javax.swing.JDialog VisualizarArbitros_Dia;
     private javax.swing.JDialog VisualizarEntrenadores_Dia;
     private javax.swing.JDialog VisualizarEquipos_Dia;
@@ -1769,8 +1952,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton btn_modificarjugador;
     private javax.swing.JButton btn_quinela;
     private javax.swing.JButton btn_salirmodificar;
-    private javax.swing.JComboBox<String> cb_Apuestas;
     private javax.swing.JComboBox<String> cb_EquiposJornadaA;
+    private javax.swing.JComboBox<String> cb_EquiposJornadaB;
+    private javax.swing.JComboBox<String> cb_MultiplicadorA;
+    private javax.swing.JComboBox<String> cb_MultiplicadorB;
     private javax.swing.JComboBox<String> cb_equipos;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -1783,7 +1968,12 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1795,6 +1985,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1803,6 +1994,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -1822,5 +2014,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTable tb_entrenadores;
     private javax.swing.JTable tb_equipos;
     private javax.swing.JTextField tf_MontoApuesta;
+    private javax.swing.JTextField txt_ApuestaA;
+    private javax.swing.JTextField txt_ApuestaB;
     // End of variables declaration//GEN-END:variables
 }
