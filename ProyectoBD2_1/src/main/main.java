@@ -1623,13 +1623,11 @@ public class main extends javax.swing.JFrame {
 
     private void btn_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_adminMouseClicked
         this.Administracion_Dialog.pack();
-        this.Administracion_Dialog.setModal(true);
         this.Administracion_Dialog.setLocationRelativeTo(null);
         this.Administracion_Dialog.setVisible(true);
     }//GEN-LAST:event_btn_adminMouseClicked
     private void btn_VisualizarTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VisualizarTorneoActionPerformed
         this.VisualizarTorneoMenu_Dia.pack();
-        this.VisualizarTorneoMenu_Dia.setModal(true);
         this.VisualizarTorneoMenu_Dia.setLocationRelativeTo(null);
         this.VisualizarTorneoMenu_Dia.setVisible(true);
     }//GEN-LAST:event_btn_VisualizarTorneoActionPerformed
@@ -1874,37 +1872,40 @@ public class main extends javax.swing.JFrame {
             this.ResultadosQuinela.setModal(true);
             this.ResultadosQuinela.setTitle("Resultados");
             this.ResultadosQuinela.setLocationRelativeTo(null);
-            txt_EquipoQAposto.setText(cb_EquiposJornadaB.getSelectedItem().toString());
-            txt_ApuestaRealizada.setText(txt_ApuestaB.getText());
-            txt_MultiplicadorSeleccionado.setText(cb_MultiplicadorB.getSelectedItem().toString());
-            int indice = this.TablaJornadaBApuestas.getSelectedRow();
-            TableModel modeloMesa = TablaJornadaBApuestas.getModel();
-            String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
-            String equipo2 = modeloMesa.getValueAt(indice, 1).toString();
-            int aux = 0;
-            ((DefaultTableModel) TablaJornadaBUsuario.getModel()).setRowCount(0);
-            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
-                if (p.getA().getNombreEquipo().equals(equipo1) && p.getB().getNombreEquipo().equals(equipo2)) {
-                    if (p.getA().getPeso() > p.getB().getPeso()) {
-                        txt_EquipoQGano.setText(equipo1);
-                        aux = 1;
-                    } else if (p.getB().getPeso() > p.getA().getPeso()) {
-                        txt_EquipoQGano.setText(equipo2);
-                    }//Fin del if
-                }//Fin del if
-            }//FIn del for
-            if (txt_EquipoQAposto.getText().equals(txt_EquipoQGano.getText().toString())) {
-                double ApuestaB = Double.parseDouble(txt_ApuestaB.getText().toString());
-                double multiplicador = Double.parseDouble(txt_MultiplicadorSeleccionado.getText().toString());
-                double valorFinal = ApuestaB * multiplicador;
-                double incremento = valorFinal - ApuestaB;
-                double resultado = incremento / ApuestaB;
-                double ValorPorcentaje = resultado * 100;
-                txt_PorcentajeGanancia.setText(ValorPorcentaje + "%");
+            double ApuestaB = Double.parseDouble(txt_ApuestaB.getText().toString());
+            if (ApuestaB > 100000) {
+                JOptionPane.showMessageDialog(null, "No ha ingresado una cantidad valida.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                txt_PorcentajeGanancia.setText("No hubo ganancia.");
-            }//Fin del if
-            this.ResultadosQuinela.setVisible(true);
+                txt_EquipoQAposto.setText(cb_EquiposJornadaB.getSelectedItem().toString());
+                txt_ApuestaRealizada.setText(txt_ApuestaB.getText());
+                txt_MultiplicadorSeleccionado.setText(cb_MultiplicadorB.getSelectedItem().toString());
+                int indice = this.TablaJornadaBApuestas.getSelectedRow();
+                TableModel modeloMesa = TablaJornadaBApuestas.getModel();
+                String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
+                String equipo2 = modeloMesa.getValueAt(indice, 1).toString();
+                ((DefaultTableModel) TablaJornadaBUsuario.getModel()).setRowCount(0);
+                for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
+                    if (p.getA().getNombreEquipo().equals(equipo1) && p.getB().getNombreEquipo().equals(equipo2)) {
+                        if (p.getA().getPeso() > p.getB().getPeso()) {
+                            txt_EquipoQGano.setText(equipo1);
+                        } else if (p.getB().getPeso() > p.getA().getPeso()) {
+                            txt_EquipoQGano.setText(equipo2);
+                        }//Fin del if
+                    }//Fin del if
+                }//FIn del for
+                if (txt_EquipoQAposto.getText().equals(txt_EquipoQGano.getText().toString())) {
+                    double ApB = Double.parseDouble(txt_ApuestaB.getText().toString());
+                    double multiplicador = Double.parseDouble(txt_MultiplicadorSeleccionado.getText().toString());
+                    double valorFinal = ApB * multiplicador;
+                    double incremento = valorFinal - ApB;
+                    double resultado = incremento / ApB;
+                    double ValorPorcentaje = resultado * 100;
+                    txt_PorcentajeGanancia.setText(ValorPorcentaje + "%");
+                } else {
+                    txt_PorcentajeGanancia.setText("No hubo ganancia.");
+                }//Fin del if
+                this.ResultadosQuinela.setVisible(true);
+            }//Fin delif else
         } else {
             JOptionPane.showMessageDialog(null, "No ha ingresado una cantidad a apostar.", "Error", JOptionPane.ERROR_MESSAGE);
         }//Fin del if else
@@ -1915,35 +1916,39 @@ public class main extends javax.swing.JFrame {
             this.ResultadosQuinela.setModal(true);
             this.ResultadosQuinela.setTitle("Resultados");
             this.ResultadosQuinela.setLocationRelativeTo(null);
-            txt_EquipoQAposto.setText(cb_EquiposJornadaA.getSelectedItem().toString());
-            txt_ApuestaRealizada.setText(txt_ApuestaA.getText());
-            txt_MultiplicadorSeleccionado.setText(cb_MultiplicadorA.getSelectedItem().toString());
-            int indice = this.TablaJornadaAApuestas.getSelectedRow();
-            TableModel modeloMesa = TablaJornadaAApuestas.getModel();
-            String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
-            String equipo2 = modeloMesa.getValueAt(indice, 1).toString();
-            ((DefaultTableModel) TablaJornadaAUsuario.getModel()).setRowCount(0);
-            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
-                if (p.getA().getNombreEquipo().equals(equipo1) && p.getB().getNombreEquipo().equals(equipo2)) {
-                    if (p.getA().getPeso() > p.getB().getPeso()) {
-                        txt_EquipoQGano.setText(equipo1);
-                    } else if (p.getB().getPeso() > p.getA().getPeso()) {
-                        txt_EquipoQGano.setText(equipo2);
-                    }//Fin del if
-                }//Fin del if
-            }//FIn del for
-            if (txt_EquipoQAposto.getText().equals(txt_EquipoQGano.getText().toString())) {
-                double ApuestaA = Double.parseDouble(txt_ApuestaA.getText().toString());
-                double multiplicador = Double.parseDouble(txt_MultiplicadorSeleccionado.getText().toString());
-                double valorFinal = ApuestaA * multiplicador;
-                double incremento = valorFinal - ApuestaA;
-                double resultado = incremento / ApuestaA;
-                double ValorPorcentaje = resultado * 100;
-                txt_PorcentajeGanancia.setText(ValorPorcentaje + "%");
+            double ApuestaA = Double.parseDouble(txt_ApuestaA.getText().toString());
+            if (ApuestaA > 100000) {
+                JOptionPane.showMessageDialog(null, "No ha ingresado una cantidad valida.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                txt_PorcentajeGanancia.setText("No hubo ganancia.");
-            }
-            this.ResultadosQuinela.setVisible(true);
+                txt_EquipoQAposto.setText(cb_EquiposJornadaA.getSelectedItem().toString());
+                txt_ApuestaRealizada.setText(txt_ApuestaA.getText());
+                txt_MultiplicadorSeleccionado.setText(cb_MultiplicadorA.getSelectedItem().toString());
+                int indice = this.TablaJornadaAApuestas.getSelectedRow();
+                TableModel modeloMesa = TablaJornadaAApuestas.getModel();
+                String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
+                String equipo2 = modeloMesa.getValueAt(indice, 1).toString();
+                ((DefaultTableModel) TablaJornadaAUsuario.getModel()).setRowCount(0);
+                for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
+                    if (p.getA().getNombreEquipo().equals(equipo1) && p.getB().getNombreEquipo().equals(equipo2)) {
+                        if (p.getA().getPeso() > p.getB().getPeso()) {
+                            txt_EquipoQGano.setText(equipo1);
+                        } else if (p.getB().getPeso() > p.getA().getPeso()) {
+                            txt_EquipoQGano.setText(equipo2);
+                        }//Fin del if
+                    }//Fin del if
+                }//FIn del for
+                if (txt_EquipoQAposto.getText().equals(txt_EquipoQGano.getText().toString())) {
+                    double multiplicador = Double.parseDouble(txt_MultiplicadorSeleccionado.getText().toString());
+                    double valorFinal = ApuestaA * multiplicador;
+                    double incremento = valorFinal - ApuestaA;
+                    double resultado = incremento / ApuestaA;
+                    double ValorPorcentaje = resultado * 100;
+                    txt_PorcentajeGanancia.setText(ValorPorcentaje + "%");
+                } else {
+                    txt_PorcentajeGanancia.setText("No hubo ganancia.");
+                }//Fin del if else
+                this.ResultadosQuinela.setVisible(true);
+            }//Fin delif else
         } else {
             JOptionPane.showMessageDialog(null, "No ha ingresado una cantidad a apostar.", "Error", JOptionPane.ERROR_MESSAGE);
         }//Fin del if else 
@@ -1954,8 +1959,8 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_SalirVisualizacionTorneoUsuarioActionPerformed
 
     private void btn_ModificarArbitroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ModificarArbitroMouseClicked
-        
-        
+
+
     }//GEN-LAST:event_btn_ModificarArbitroMouseClicked
 
     private void btn_SalirVerEquiposUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVerEquiposUsuarioMouseClicked
