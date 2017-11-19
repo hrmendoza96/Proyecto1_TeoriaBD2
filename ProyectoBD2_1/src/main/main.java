@@ -30,7 +30,7 @@ public class main extends javax.swing.JFrame {
     public main() throws IOException {
 
         //Cargar componentes externos del Jframe
-        //this.setLocationRelativeTo(this);
+        //this.setLocationRelativeTo(null);
         this.setIconImage(ImageIO.read(new File("./src/Pics/iconframe.png")));
 
         /**
@@ -188,6 +188,16 @@ public class main extends javax.swing.JFrame {
         txt_PorcentajeGanancia = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         txt_ResultadoFinal = new javax.swing.JTextField();
+        DialogTorneoUsuario = new javax.swing.JDialog();
+        jLabel30 = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JSeparator();
+        jLabel31 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        TablaJornadaAUsuario = new javax.swing.JTable();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        TablaJornadaBUsuario = new javax.swing.JTable();
+        jLabel32 = new javax.swing.JLabel();
+        btn_SalirVisualizacionTorneoUsuario = new javax.swing.JButton();
         btn_admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_quinela = new javax.swing.JButton();
@@ -1338,6 +1348,106 @@ public class main extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
+        jLabel30.setFont(new java.awt.Font("Agency FB", 0, 48)); // NOI18N
+        jLabel30.setText("Torneo");
+
+        jLabel31.setFont(new java.awt.Font("Agency FB", 0, 36)); // NOI18N
+        jLabel31.setText("Jornada A");
+
+        TablaJornadaAUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Equipo Visita", "Equipo Casa"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(TablaJornadaAUsuario);
+
+        TablaJornadaBUsuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Equipo Visita", "Equipo Casa"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane9.setViewportView(TablaJornadaBUsuario);
+
+        jLabel32.setFont(new java.awt.Font("Agency FB", 0, 36)); // NOI18N
+        jLabel32.setText("Jornada B");
+
+        btn_SalirVisualizacionTorneoUsuario.setText("Salir");
+        btn_SalirVisualizacionTorneoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SalirVisualizacionTorneoUsuarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DialogTorneoUsuarioLayout = new javax.swing.GroupLayout(DialogTorneoUsuario.getContentPane());
+        DialogTorneoUsuario.getContentPane().setLayout(DialogTorneoUsuarioLayout);
+        DialogTorneoUsuarioLayout.setHorizontalGroup(
+            DialogTorneoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DialogTorneoUsuarioLayout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel32)
+                .addGap(192, 192, 192))
+            .addGroup(DialogTorneoUsuarioLayout.createSequentialGroup()
+                .addGroup(DialogTorneoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogTorneoUsuarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DialogTorneoUsuarioLayout.createSequentialGroup()
+                        .addGap(442, 442, 442)
+                        .addGroup(DialogTorneoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel30))))
+                .addContainerGap(42, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogTorneoUsuarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_SalirVisualizacionTorneoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+        );
+        DialogTorneoUsuarioLayout.setVerticalGroup(
+            DialogTorneoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DialogTorneoUsuarioLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(DialogTorneoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(DialogTorneoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(btn_SalirVisualizacionTorneoUsuario)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quinela 2017");
 
@@ -1422,7 +1532,6 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_BorrarTorneoActionPerformed
     private void btn_CrearTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearTorneoActionPerformed
         CrearEquipos();
-        Collections.shuffle(equipos); //randomizar el orden de los equipos para asignarles partidos
         CrearPartidos();
         //  RedondearPesos();
         JOptionPane.showMessageDialog(null, "¡El torneo se ha creado aleatoriamente!", "Torneo Creado", JOptionPane.INFORMATION_MESSAGE);
@@ -1448,49 +1557,27 @@ public class main extends javax.swing.JFrame {
             this.VisualizarEquipos_Dia.setVisible(true);
         }//Fin del if else
     }//GEN-LAST:event_btn_VerEquiposActionPerformed
-
     private void rb_EquipoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_EquipoAActionPerformed
 
 
     }//GEN-LAST:event_rb_EquipoAActionPerformed
-    private void btn_VerTorneoParticipacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerTorneoParticipacionActionPerformed
-        //metodo repetido
-        if (torneo == null) {
-            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
-        } else {
-            this.VisualizarJornadas_Dia.pack();
-            this.VisualizarJornadas_Dia.setModal(true);
-            this.VisualizarJornadas_Dia.setVisible(true);
-            ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
-            ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
-            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
-                model.addRow(row);
-            }//Fin del for
-            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
-                model.addRow(row);
-            }//Fin del for
-        }//Fin del if else
-    }//GEN-LAST:event_btn_VerTorneoParticipacionActionPerformed
 
+    private void btn_VerTorneoParticipacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerTorneoParticipacionActionPerformed
+        VerTorneoUsuario();
+    }//GEN-LAST:event_btn_VerTorneoParticipacionActionPerformed
     private void btn_quinelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quinelaActionPerformed
         this.JDialog_Participacion.pack();
         this.JDialog_Participacion.setModal(true);
         this.JDialog_Participacion.setLocationRelativeTo(null);
         this.JDialog_Participacion.setVisible(true);
     }//GEN-LAST:event_btn_quinelaActionPerformed
-
     private void btn_ModificarTorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ModificarTorneoMouseClicked
         this.ModificarTorneo_Dia.pack();
         this.ModificarTorneo_Dia.setModal(true);
         this.ModificarTorneo_Dia.setLocationRelativeTo(null);
         this.ModificarTorneo_Dia.setVisible(true);
     }//GEN-LAST:event_btn_ModificarTorneoMouseClicked
+
     private void btn_salirmodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirmodificarMouseClicked
         this.ModificarTorneo_Dia.setVisible(false);
     }//GEN-LAST:event_btn_salirmodificarMouseClicked
@@ -1498,8 +1585,8 @@ public class main extends javax.swing.JFrame {
         this.VisualizarTorneoMenu_Dia.setVisible(false);
     }//GEN-LAST:event_btn_SalirVisualizarTorneoMouseClicked
     private void btn_SalirVerEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVerEquiposMouseClicked
-        this.VisualizarEquipos_Dia.setVisible(false);
         cb_equipos.removeAllItems();
+        VisualizarEquipos_Dia.setVisible(false);
     }//GEN-LAST:event_btn_SalirVerEquiposMouseClicked
     private void btn_actualizartablaequiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizartablaequiposMouseClicked
         ((DefaultTableModel) tb_equipos.getModel()).setRowCount(0);
@@ -1519,16 +1606,14 @@ public class main extends javax.swing.JFrame {
             model.addRow(row);
         }//Fin del for
     }//GEN-LAST:event_btn_actualizartablaequiposMouseClicked
+
     private void btn_SalirVisualizarEntrenadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarEntrenadoresMouseClicked
         this.VisualizarEntrenadores_Dia.setVisible(false);
-        this.VisualizarTorneoMenu_Dia.setVisible(true);
     }//GEN-LAST:event_btn_SalirVisualizarEntrenadoresMouseClicked
-
-
     private void btn_SalirVisualizarArbitrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SalirVisualizarArbitrosMouseClicked
         this.VisualizarArbitros_Dia.setVisible(false);
-        this.VisualizarTorneoMenu_Dia.setVisible(true);
     }//GEN-LAST:event_btn_SalirVisualizarArbitrosMouseClicked
+
     private void btn_QuinelaDeJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuinelaDeJornadaActionPerformed
         this.Dialog_SelecJornada.pack();
         this.Dialog_SelecJornada.setModal(true);
@@ -1536,6 +1621,7 @@ public class main extends javax.swing.JFrame {
         this.Dialog_SelecJornada.setLocationRelativeTo(null);
         this.Dialog_SelecJornada.setVisible(true);
     }//GEN-LAST:event_btn_QuinelaDeJornadaActionPerformed
+
     private void btn_JornadaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_JornadaAActionPerformed
         if (torneo == null) {
             JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
@@ -1570,6 +1656,7 @@ public class main extends javax.swing.JFrame {
             this.DialogJornadaB.setVisible(true);
         }//Fin del if else
     }//GEN-LAST:event_btn_JornadaBActionPerformed
+
     private void MenuShowOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuShowOptionsActionPerformed
         JOptionPane.showMessageDialog(null, "Para crear una apuesta debes de:\n"
                 + "1. Presionar la fila en la que se encuentran los equipos que jugaran el partido.\n"
@@ -1590,6 +1677,7 @@ public class main extends javax.swing.JFrame {
             evt.consume();
         }//Fin del if
     }//GEN-LAST:event_txt_ApuestaAKeyTyped
+
     private void MenuShowOptions1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuShowOptions1ActionPerformed
         JOptionPane.showMessageDialog(null, "Para crear una apuesta debes de:\n"
                 + "1. Presionar la fila en la que se encuentran los equipos que jugaran el partido.\n"
@@ -1611,43 +1699,8 @@ public class main extends javax.swing.JFrame {
         }//Fin del if
     }//GEN-LAST:event_txt_ApuestaBKeyTyped
 
-
     private void btn_VerJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerJornadasActionPerformed
-        if (torneo == null) {
-            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
-
-        } else {
-
-            this.VisualizarJornadas_Dia.pack();
-            this.VisualizarJornadas_Dia.setModal(true);
-            this.VisualizarJornadas_Dia.setVisible(true);
-            this.Administracion_Dialog.setVisible(false);
-
-            ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
-            ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
-
-            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
-                double valor = p.getA().getPeso() - p.getB().getPeso();
-                if (valor < 0) {
-                    valor *= -1;
-                }//FIn del if
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    valor};
-                model.addRow(row);
-            }//Fin del for
-
-            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
-                double valor = p.getA().getPeso() - p.getB().getPeso();
-                if (valor < 0) {
-                    valor *= -1;
-                }//FIn del if
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    valor};
-                model.addRow(row);
-            }//Fin del for
-        }//Fin del if else
+        cargarTablasTorneo();
     }//GEN-LAST:event_btn_VerJornadasActionPerformed
     private void btn_VerequiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerequiposActionPerformed
         if (torneo == null) {
@@ -1678,7 +1731,6 @@ public class main extends javax.swing.JFrame {
             this.VisualizarEntrenadores_Dia.setModal(true);
             this.VisualizarEntrenadores_Dia.setLocationRelativeTo(null);
             this.VisualizarEntrenadores_Dia.setVisible(true);
-            this.VisualizarTorneoMenu_Dia.setVisible(false);
         }//Fin del ifelse
     }//GEN-LAST:event_btn_VerEntrenadoresActionPerformed
     private void btn_VerArbitrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerArbitrosActionPerformed
@@ -1698,29 +1750,94 @@ public class main extends javax.swing.JFrame {
             this.VisualizarArbitros_Dia.setModal(true);
             this.VisualizarArbitros_Dia.setLocationRelativeTo(null);
             this.VisualizarArbitros_Dia.setVisible(true);
-            this.VisualizarTorneoMenu_Dia.setVisible(false);
-        }
+        }//Fin del if else
     }//GEN-LAST:event_btn_VerArbitrosActionPerformed
 
 
     private void btn_ResultadosJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ResultadosJBActionPerformed
-        this.ResultadosQuinela.pack();
-        this.ResultadosQuinela.setModal(true);
-        this.ResultadosQuinela.setTitle("Resultados");
-        this.ResultadosQuinela.setLocationRelativeTo(null);
-        txt_EquipoQAposto.setText(cb_EquiposJornadaB.getSelectedItem().toString());
-        txt_ApuestaRealizada.setText(txt_ApuestaB.getText());
-        txt_MultiplicadorSeleccionado.setText(cb_MultiplicadorB.getSelectedItem().toString());
-        
-        this.ResultadosQuinela.setVisible(true);
+        if (!txt_ApuestaB.getText().equals("")) {
+            this.ResultadosQuinela.pack();
+            this.ResultadosQuinela.setModal(true);
+            this.ResultadosQuinela.setTitle("Resultados");
+            this.ResultadosQuinela.setLocationRelativeTo(null);
+            txt_EquipoQAposto.setText(cb_EquiposJornadaB.getSelectedItem().toString());
+            txt_ApuestaRealizada.setText(txt_ApuestaB.getText());
+            txt_MultiplicadorSeleccionado.setText(cb_MultiplicadorB.getSelectedItem().toString());
+            int indice = this.TablaJornadaBApuestas.getSelectedRow();
+            TableModel modeloMesa = TablaJornadaBApuestas.getModel();
+            String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
+            String equipo2 = modeloMesa.getValueAt(indice, 1).toString();
+            int aux = 0;
+            ((DefaultTableModel) TablaJornadaBUsuario.getModel()).setRowCount(0);
+            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
+                if (p.getA().getNombreEquipo().equals(equipo1) && p.getB().getNombreEquipo().equals(equipo2)) {
+                    if (p.getA().getPeso() > p.getB().getPeso()) {
+                        txt_EquipoQGano.setText(equipo1);
+                        aux = 1;
+                    } else if (p.getB().getPeso() > p.getA().getPeso()) {
+                        txt_EquipoQGano.setText(equipo2);
+                    }//Fin del if
+                }//Fin del if
+            }//FIn del for
+            if (txt_EquipoQAposto.getText().equals(txt_EquipoQGano.getText().toString())) {
+                double ApuestaB = Double.parseDouble(txt_ApuestaB.getText().toString());
+                double multiplicador = Double.parseDouble(txt_MultiplicadorSeleccionado.getText().toString());
+                double valorFinal = ApuestaB * multiplicador;
+                double incremento = valorFinal - ApuestaB;
+                double resultado = incremento / ApuestaB;
+                double ValorPorcentaje = resultado * 100;
+                txt_PorcentajeGanancia.setText(ValorPorcentaje + "%");
+            } else {
+                txt_PorcentajeGanancia.setText("No hubo ganancia.");
+            }//Fin del if
+            this.ResultadosQuinela.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "No ha ingresado una cantidad a apostar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }//Fin del if else
     }//GEN-LAST:event_btn_ResultadosJBActionPerformed
     private void btn_ResultadosJAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ResultadosJAActionPerformed
-        this.ResultadosQuinela.pack();
-        this.ResultadosQuinela.setModal(true);
-        this.ResultadosQuinela.setTitle("Resultados");
-        this.ResultadosQuinela.setLocationRelativeTo(null);
-        this.ResultadosQuinela.setVisible(true);
+        if (!txt_ApuestaA.getText().equals("")) {
+            this.ResultadosQuinela.pack();
+            this.ResultadosQuinela.setModal(true);
+            this.ResultadosQuinela.setTitle("Resultados");
+            this.ResultadosQuinela.setLocationRelativeTo(null);
+            txt_EquipoQAposto.setText(cb_EquiposJornadaA.getSelectedItem().toString());
+            txt_ApuestaRealizada.setText(txt_ApuestaA.getText());
+            txt_MultiplicadorSeleccionado.setText(cb_MultiplicadorA.getSelectedItem().toString());
+            int indice = this.TablaJornadaAApuestas.getSelectedRow();
+            TableModel modeloMesa = TablaJornadaAApuestas.getModel();
+            String equipo1 = modeloMesa.getValueAt(indice, 0).toString();
+            String equipo2 = modeloMesa.getValueAt(indice, 1).toString();
+            ((DefaultTableModel) TablaJornadaAUsuario.getModel()).setRowCount(0);
+            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
+                if (p.getA().getNombreEquipo().equals(equipo1) && p.getB().getNombreEquipo().equals(equipo2)) {
+                    if (p.getA().getPeso() > p.getB().getPeso()) {
+                        txt_EquipoQGano.setText(equipo1);
+                    } else if (p.getB().getPeso() > p.getA().getPeso()) {
+                        txt_EquipoQGano.setText(equipo2);
+                    }//Fin del if
+                }//Fin del if
+            }//FIn del for
+            if (txt_EquipoQAposto.getText().equals(txt_EquipoQGano.getText().toString())) {
+                double ApuestaA = Double.parseDouble(txt_ApuestaA.getText().toString());
+                double multiplicador = Double.parseDouble(txt_MultiplicadorSeleccionado.getText().toString());
+                double valorFinal = ApuestaA * multiplicador;
+                double incremento = valorFinal - ApuestaA;
+                double resultado = incremento / ApuestaA;
+                double ValorPorcentaje = resultado * 100;
+                txt_PorcentajeGanancia.setText(ValorPorcentaje + "%");
+            } else {
+                txt_PorcentajeGanancia.setText("No hubo ganancia.");
+            }
+            this.ResultadosQuinela.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "No ha ingresado una cantidad a apostar.", "Error", JOptionPane.ERROR_MESSAGE);
+        }//Fin del if else 
     }//GEN-LAST:event_btn_ResultadosJAActionPerformed
+
+    private void btn_SalirVisualizacionTorneoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirVisualizacionTorneoUsuarioActionPerformed
+        this.DialogTorneoUsuario.dispose();
+    }//GEN-LAST:event_btn_SalirVisualizacionTorneoUsuarioActionPerformed
 
     //Terminados
     public void MetodoComboBoxJornadaA() {
@@ -1754,7 +1871,7 @@ public class main extends javax.swing.JFrame {
             model.addElement(item);
         }//Fin del for
         // setting model with new data
-        cb_EquiposJornadaA.setModel(model);
+        cb_EquiposJornadaB.setModel(model);
     }
 
     public void CrearEquipos() {
@@ -1866,49 +1983,9 @@ public class main extends javax.swing.JFrame {
         Jornada jorn1 = new Jornada();
         Jornada jorn2 = new Jornada();
 
-        Random r = new Random();
+        jorn1 = RandomizarJornada();
+        jorn2 = RandomizarJornada();
 
-        for (int i = 0; i < 15; i++) {
-
-            Partido par = new Partido();
-
-            Equipo Casa = equipos.get((i * 2) + 1);
-            Equipo Visita = equipos.get((i * 2));
-
-            double pesoViejoB = Casa.getPeso(); //casa
-            //System.out.println("Casa(old): " + pesoViejoB);
-            double pesoViejoA = Visita.getPeso(); //visita
-            double aumento = 1.65 * (r.nextInt(20) + 1);
-
-            par.setA(Visita); //i * 2 para conseguir siempre el equipo que va siguente
-            Casa.setPeso(pesoViejoB + aumento); //aumentar el peso al equipo de casa
-            par.setB(Casa);
-            //System.out.println("Casa(aumento): " + Casa.getPeso());
-
-            par = AgregarArbitros(par, i * 4); //va a agregar cada cuatro nuevos arbitros a segun el i del for. i del for = numero de partido
-            jorn1.addPartido(par);
-
-            par = new Partido(); //reiniciar variable partido
-            r = new Random();
-            aumento = 1.65 * (r.nextInt(20) + 1);
-
-            Casa.setPeso(pesoViejoB); //restarle el aumento al equipo de casa que ahora es visitante
-            par.setA(Casa);
-            Visita.setPeso(pesoViejoA + aumento);
-            par.setB(Visita);
-
-            par = AgregarArbitros(par, i * 4);
-            //System.out.println("Casa(old2): " + Casa.getPeso());
-            jorn2.addPartido(par);
-
-        }
-
-        /*for (Partido par : jorn1.getPartidos()) {
-            System.out.println(par.getA().getNombreEquipo() + " VS " + par.getB().getNombreEquipo());
-            for (Arbitro arb : par.getArbitros()) {
-                System.out.println(arb.getNombreArbitro());
-            }
-        }*/
         torneo = new Torneo();
         torneo.addJornada(jorn1);
         torneo.addJornada(jorn2);
@@ -1972,6 +2049,97 @@ public class main extends javax.swing.JFrame {
 
     }//Fin del metodo
 
+    public Jornada RandomizarJornada() {
+        //Sistema para generar las jornadas de manera aleatoria
+        Collections.shuffle(equipos); //randomizar el orden de los equipos para asignarles partidos
+        Jornada jornada = new Jornada();
+        Random r = new Random();
+        for (int i = 0; i < 15; i++) {
+            Partido par = new Partido();
+            Equipo Casa = equipos.get((i * 2) + 1);
+            Equipo Visita = equipos.get((i * 2));
+            double pesoViejoB = Casa.getPeso(); //casa
+            //System.out.println("Casa(old): " + pesoViejoB);
+            double pesoViejoA = Visita.getPeso(); //visita
+            double aumento = 1.65 * (r.nextInt(20) + 1);
+            par.setA(Visita); //i * 2 para conseguir siempre el equipo que va siguente
+            Casa.setPeso(pesoViejoB + aumento); //aumentar el peso al equipo de casa
+            par.setB(Casa);
+            //System.out.println("Casa(aumento): " + Casa.getPeso());
+            par = AgregarArbitros(par, i * 4); //va a agregar cada cuatro nuevos arbitros a segun el i del for. i del for = numero de partido
+            jornada.addPartido(par);
+            /*
+            par = new Partido(); //reiniciar variable partido
+            r = new Random();
+            aumento = 1.65 * (r.nextInt(20) + 1);
+            Casa.setPeso(pesoViejoB); //restarle el aumento al equipo de casa que ahora es visitante
+            par.setA(Casa);
+            Visita.setPeso(pesoViejoA + aumento);
+            par.setB(Visita);
+            par = AgregarArbitros(par, i * 4);
+            //System.out.println("Casa(old2): " + Casa.getPeso());
+            jorn2.addPartido(par);
+             */
+        }//Fin del for
+        /*for (Partido par : jorn1.getPartidos()) {
+            System.out.println(par.getA().getNombreEquipo() + " VS " + par.getB().getNombreEquipo());
+            for (Arbitro arb : par.getArbitros()) {
+                System.out.println(arb.getNombreArbitro());
+            }
+        }*/
+        return jornada;
+    }//Fin del metodo
+
+    public void cargarTablasTorneo() {
+        if (torneo == null) {
+            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
+            ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
+            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    p.getA().getPeso() - p.getB().getPeso()};
+                model.addRow(row);
+            }//FIn del for
+            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    p.getA().getPeso() - p.getB().getPeso()};
+                model.addRow(row);
+            }//Fin del for
+            this.VisualizarJornadas_Dia.pack();
+            this.VisualizarJornadas_Dia.setModal(true);
+            this.VisualizarJornadas_Dia.setVisible(true);
+            this.Administracion_Dialog.setVisible(false);
+            this.JDialog_Participacion.setVisible(false);
+        }//Fin del if else
+    }//Fin del metodo
+
+    public void VerTorneoUsuario() {
+        if (torneo == null) {
+            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            ((DefaultTableModel) TablaJornadaAUsuario.getModel()).setRowCount(0);
+            ((DefaultTableModel) TablaJornadaBUsuario.getModel()).setRowCount(0);
+            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaAUsuario.getModel());
+                Object[] row = {p.getA().getNombreEquipo(), p.getB().getNombreEquipo()};
+                model.addRow(row);
+            }//FIn del for
+            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaBUsuario.getModel());
+                Object[] row = {p.getA().getNombreEquipo(), p.getB().getNombreEquipo()};
+                model.addRow(row);
+            }//Fin del for
+            this.DialogTorneoUsuario.pack();
+            this.DialogTorneoUsuario.setModal(true);
+            this.DialogTorneoUsuario.setVisible(true);
+            this.Administracion_Dialog.setVisible(false);
+            this.JDialog_Participacion.setVisible(false);
+        }//Fin del if else
+    }//Fin del metodo
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -2008,6 +2176,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog Administracion_Dialog;
     private javax.swing.JDialog DialogJornadaA;
     private javax.swing.JDialog DialogJornadaB;
+    private javax.swing.JDialog DialogTorneoUsuario;
     private javax.swing.JDialog Dialog_IngresarApuesta;
     private javax.swing.JDialog Dialog_SelecJornada;
     private javax.swing.JDialog JDialog_Participacion;
@@ -2021,8 +2190,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog ResultadosQuinela;
     private javax.swing.JTable TablaJornadaA;
     private javax.swing.JTable TablaJornadaAApuestas;
+    private javax.swing.JTable TablaJornadaAUsuario;
     private javax.swing.JTable TablaJornadaB;
     private javax.swing.JTable TablaJornadaBApuestas;
+    private javax.swing.JTable TablaJornadaBUsuario;
     private javax.swing.JDialog VisualizarArbitros_Dia;
     private javax.swing.JDialog VisualizarEntrenadores_Dia;
     private javax.swing.JDialog VisualizarEquipos_Dia;
@@ -2040,6 +2211,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton btn_SalirAdmin;
     private javax.swing.JButton btn_SalirVerEquipos;
     private javax.swing.JButton btn_SalirVisualizacionTorneo;
+    private javax.swing.JButton btn_SalirVisualizacionTorneoUsuario;
     private javax.swing.JButton btn_SalirVisualizarArbitros;
     private javax.swing.JButton btn_SalirVisualizarEntrenadores;
     private javax.swing.JButton btn_SalirVisualizarTorneo;
@@ -2086,6 +2258,9 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2106,9 +2281,12 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -2134,4 +2312,5 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField txt_PorcentajeGanancia;
     private javax.swing.JTextField txt_ResultadoFinal;
     // End of variables declaration//GEN-END:variables
-}
+
+}//Fin de la clase
