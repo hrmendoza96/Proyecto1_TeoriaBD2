@@ -157,6 +157,7 @@ public class main extends javax.swing.JFrame {
         txt_ApuestaA = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         cb_MultiplicadorA = new javax.swing.JComboBox<>();
+        btn_ResultadosJA = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         JMOMenuOpciones = new javax.swing.JMenu();
         MenuShowOptions = new javax.swing.JMenuItem();
@@ -170,6 +171,7 @@ public class main extends javax.swing.JFrame {
         cb_EquiposJornadaB = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
         cb_MultiplicadorB = new javax.swing.JComboBox<>();
+        btn_ResultadosJB = new javax.swing.JButton();
         jMenuBar3 = new javax.swing.JMenuBar();
         JMOMenuOpciones1 = new javax.swing.JMenu();
         MenuShowOptions1 = new javax.swing.JMenuItem();
@@ -1032,6 +1034,14 @@ public class main extends javax.swing.JFrame {
 
         cb_MultiplicadorA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "15", "30" }));
 
+        btn_ResultadosJA.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btn_ResultadosJA.setText("Ver Resultados");
+        btn_ResultadosJA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ResultadosJAActionPerformed(evt);
+            }
+        });
+
         JMOMenuOpciones.setText("Opciones");
 
         MenuShowOptions.setText("Ayuda");
@@ -1068,6 +1078,10 @@ public class main extends javax.swing.JFrame {
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cb_MultiplicadorA, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogJornadaALayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_ResultadosJA)
+                .addGap(135, 135, 135))
         );
         DialogJornadaALayout.setVerticalGroup(
             DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1089,7 +1103,9 @@ public class main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cb_MultiplicadorA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(btn_ResultadosJA)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -1136,6 +1152,14 @@ public class main extends javax.swing.JFrame {
 
         cb_MultiplicadorB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "15", "30" }));
 
+        btn_ResultadosJB.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btn_ResultadosJB.setText("Ver Resultados");
+        btn_ResultadosJB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ResultadosJBActionPerformed(evt);
+            }
+        });
+
         JMOMenuOpciones1.setText("Opciones");
 
         MenuShowOptions1.setText("Ayuda");
@@ -1171,7 +1195,11 @@ public class main extends javax.swing.JFrame {
                             .addComponent(txt_ApuestaB, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cb_MultiplicadorB, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogJornadaBLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_ResultadosJB)
+                .addGap(159, 159, 159))
         );
         DialogJornadaBLayout.setVerticalGroup(
             DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1193,7 +1221,9 @@ public class main extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cb_MultiplicadorB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(btn_ResultadosJB)
+                .addGap(16, 16, 16))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1620,6 +1650,14 @@ public class main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_VerArbitrosActionPerformed
 
+    private void btn_ResultadosJBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ResultadosJBActionPerformed
+
+    }//GEN-LAST:event_btn_ResultadosJBActionPerformed
+
+    private void btn_ResultadosJAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ResultadosJAActionPerformed
+
+    }//GEN-LAST:event_btn_ResultadosJAActionPerformed
+
     public void MetodoComboBoxJornadaA() {
         int indice = this.TablaJornadaAApuestas.getSelectedRow();
         TableModel modeloMesa = TablaJornadaAApuestas.getModel();
@@ -1932,6 +1970,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton btn_ModificarArbitro;
     private javax.swing.JButton btn_ModificarTorneo;
     private javax.swing.JButton btn_QuinelaDeJornada;
+    private javax.swing.JButton btn_ResultadosJA;
+    private javax.swing.JButton btn_ResultadosJB;
     private javax.swing.JButton btn_SalirAdmin;
     private javax.swing.JButton btn_SalirVerEquipos;
     private javax.swing.JButton btn_SalirVisualizacionTorneo;

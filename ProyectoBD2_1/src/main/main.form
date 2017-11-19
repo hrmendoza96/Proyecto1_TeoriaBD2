@@ -1171,6 +1171,11 @@
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="btn_ResultadosJA" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -1195,7 +1200,9 @@
                       </Group>
                       <Component id="jScrollPane6" min="-2" pref="267" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="98" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Component id="btn_ResultadosJA" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="51" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1315,6 +1322,17 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
+        <Component class="javax.swing.JButton" name="btn_ResultadosJA">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ver Resultados"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ResultadosJAActionPerformed"/>
+          </Events>
+        </Component>
         <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="JMOMenuOpciones">
@@ -1363,7 +1381,12 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="btn_ResultadosJB" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1389,7 +1412,9 @@
                       </Group>
                       <Component id="jScrollPane7" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <Component id="btn_ResultadosJB" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1508,6 +1533,17 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_ResultadosJB">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ver Resultados"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ResultadosJBActionPerformed"/>
+          </Events>
         </Component>
         <Menu class="javax.swing.JMenuBar" name="jMenuBar3">
           <SubComponents>
