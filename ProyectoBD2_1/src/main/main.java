@@ -1309,9 +1309,6 @@ public class main extends javax.swing.JFrame {
 
     private void btn_CrearTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearTorneoActionPerformed
         CrearEquipos();
-
-        Collections.shuffle(equipos); //randomizar el orden de los equipos para asignarles partidos
-
         CrearPartidos();
 
         //  RedondearPesos();
@@ -1320,7 +1317,7 @@ public class main extends javax.swing.JFrame {
 
     private void btn_SalirVisualizacionTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirVisualizacionTorneoActionPerformed
         this.VisualizarJornadas_Dia.setVisible(false);
-        this.VisualizarTorneoMenu_Dia.setVisible(true);
+        //this.VisualizarTorneoMenu_Dia.setVisible(true);
     }//GEN-LAST:event_btn_SalirVisualizacionTorneoActionPerformed
 
     private void btn_SalirAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirAdminActionPerformed
@@ -1346,35 +1343,8 @@ public class main extends javax.swing.JFrame {
 
     private void btn_VerTorneoParticipacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerTorneoParticipacionActionPerformed
         //metodo repetido
-        if (torneo == null) {
-            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
-
-        } else {
-            this.VisualizarJornadas_Dia.pack();
-            this.VisualizarJornadas_Dia.setModal(true);
-            this.VisualizarJornadas_Dia.setVisible(true);
-            this.Administracion_Dialog.setVisible(false);
-            this.JDialog_Participacion.setVisible(false);
-
-            ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
-            ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
-
-            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
-
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
-                model.addRow(row);
-            }
-
-            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
-                model.addRow(row);
-            }
-
-        }
+        cargarTablasTorneo();
+        
     }//GEN-LAST:event_btn_VerTorneoParticipacionActionPerformed
 
     private void btn_quinelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quinelaActionPerformed
@@ -1545,41 +1515,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_ApuestaBKeyTyped
 
     private void btn_VerJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerJornadasActionPerformed
-        if (torneo == null) {
-            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
-
-        } else {
-
-            this.VisualizarJornadas_Dia.pack();
-            this.VisualizarJornadas_Dia.setModal(true);
-            this.VisualizarJornadas_Dia.setVisible(true);
-            this.Administracion_Dialog.setVisible(false);
-
-            ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
-            ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
-
-            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
-                double valor = p.getA().getPeso() - p.getB().getPeso();
-                if (valor < 0) {
-                    valor *= -1;
-                }//FIn del if
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    valor};
-                model.addRow(row);
-            }//Fin del for
-
-            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
-                double valor = p.getA().getPeso() - p.getB().getPeso();
-                if (valor < 0) {
-                    valor *= -1;
-                }//FIn del if
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    valor};
-                model.addRow(row);
-            }//Fin del for
-        }//Fin del if else
+        cargarTablasTorneo();
     }//GEN-LAST:event_btn_VerJornadasActionPerformed
 
     private void btn_VerequiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerequiposActionPerformed
@@ -1800,50 +1736,11 @@ public class main extends javax.swing.JFrame {
 
         Jornada jorn1 = new Jornada();
         Jornada jorn2 = new Jornada();
+        
+        jorn1 = RandomizarJornada();
+        jorn2 = RandomizarJornada();
 
-        Random r = new Random();
-
-        for (int i = 0; i < 15; i++) {
-
-            Partido par = new Partido();
-
-            Equipo Casa = equipos.get((i * 2) + 1);
-            Equipo Visita = equipos.get((i * 2));
-
-            double pesoViejoB = Casa.getPeso(); //casa
-            //System.out.println("Casa(old): " + pesoViejoB);
-            double pesoViejoA = Visita.getPeso(); //visita
-            double aumento = 1.65 * (r.nextInt(20) + 1);
-
-            par.setA(Visita); //i * 2 para conseguir siempre el equipo que va siguente
-            Casa.setPeso(pesoViejoB + aumento); //aumentar el peso al equipo de casa
-            par.setB(Casa);
-            //System.out.println("Casa(aumento): " + Casa.getPeso());
-
-            par = AgregarArbitros(par, i * 4); //va a agregar cada cuatro nuevos arbitros a segun el i del for. i del for = numero de partido
-            jorn1.addPartido(par);
-
-            par = new Partido(); //reiniciar variable partido
-            r = new Random();
-            aumento = 1.65 * (r.nextInt(20) + 1);
-
-            Casa.setPeso(pesoViejoB); //restarle el aumento al equipo de casa que ahora es visitante
-            par.setA(Casa);
-            Visita.setPeso(pesoViejoA + aumento);
-            par.setB(Visita);
-
-            par = AgregarArbitros(par, i * 4);
-            //System.out.println("Casa(old2): " + Casa.getPeso());
-            jorn2.addPartido(par);
-
-        }
-
-        /*for (Partido par : jorn1.getPartidos()) {
-            System.out.println(par.getA().getNombreEquipo() + " VS " + par.getB().getNombreEquipo());
-            for (Arbitro arb : par.getArbitros()) {
-                System.out.println(arb.getNombreArbitro());
-            }
-        }*/
+        
         torneo = new Torneo();
         torneo.addJornada(jorn1);
         torneo.addJornada(jorn2);
@@ -2057,4 +1954,94 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField txt_ApuestaA;
     private javax.swing.JTextField txt_ApuestaB;
     // End of variables declaration//GEN-END:variables
+
+
+
+
+    public Jornada RandomizarJornada(){
+        //Sistema para generar las jornadas de manera aleatoria
+        Collections.shuffle(equipos); //randomizar el orden de los equipos para asignarles partidos
+        Jornada jornada = new Jornada();
+        Random r = new Random();
+        for (int i = 0; i < 15; i++) {
+
+            Partido par = new Partido();
+
+            Equipo Casa = equipos.get((i * 2) + 1);
+            Equipo Visita = equipos.get((i * 2));
+
+            double pesoViejoB = Casa.getPeso(); //casa
+            //System.out.println("Casa(old): " + pesoViejoB);
+            double pesoViejoA = Visita.getPeso(); //visita
+            double aumento = 1.65 * (r.nextInt(20) + 1);
+
+            par.setA(Visita); //i * 2 para conseguir siempre el equipo que va siguente
+            Casa.setPeso(pesoViejoB + aumento); //aumentar el peso al equipo de casa
+            par.setB(Casa);
+            //System.out.println("Casa(aumento): " + Casa.getPeso());
+
+            par = AgregarArbitros(par, i * 4); //va a agregar cada cuatro nuevos arbitros a segun el i del for. i del for = numero de partido
+            jornada.addPartido(par);
+
+            /*
+            par = new Partido(); //reiniciar variable partido
+            r = new Random();
+            aumento = 1.65 * (r.nextInt(20) + 1);
+
+            Casa.setPeso(pesoViejoB); //restarle el aumento al equipo de casa que ahora es visitante
+            par.setA(Casa);
+            Visita.setPeso(pesoViejoA + aumento);
+            par.setB(Visita);
+
+            par = AgregarArbitros(par, i * 4);
+            //System.out.println("Casa(old2): " + Casa.getPeso());
+            jorn2.addPartido(par);
+            */
+        }
+
+        /*for (Partido par : jorn1.getPartidos()) {
+            System.out.println(par.getA().getNombreEquipo() + " VS " + par.getB().getNombreEquipo());
+            for (Arbitro arb : par.getArbitros()) {
+                System.out.println(arb.getNombreArbitro());
+            }
+        }*/
+        return jornada;
+    }
+    
+    public void cargarTablasTorneo(){
+        if (torneo == null) {
+            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            
+
+            ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
+            ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
+
+            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
+
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    p.getA().getPeso() - p.getB().getPeso()};
+                model.addRow(row);
+            }
+
+            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    p.getA().getPeso() - p.getB().getPeso()};
+                model.addRow(row);
+            }
+            
+            this.VisualizarJornadas_Dia.pack();
+            this.VisualizarJornadas_Dia.setModal(true);
+            this.VisualizarJornadas_Dia.setVisible(true);
+            this.Administracion_Dialog.setVisible(false);
+            this.JDialog_Participacion.setVisible(false);
+
+        }
+    }
+    
+
+
 }
