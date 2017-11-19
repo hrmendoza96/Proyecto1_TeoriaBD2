@@ -1310,20 +1310,12 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_BorrarTorneoActionPerformed
     private void btn_CrearTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearTorneoActionPerformed
         CrearEquipos();
-<<<<<<< HEAD
-=======
-        Collections.shuffle(equipos); //randomizar el orden de los equipos para asignarles partidos
->>>>>>> d2066c8d7ae129547273a95d98c23dbedfdf3179
         CrearPartidos();
         //  RedondearPesos();
         JOptionPane.showMessageDialog(null, "¡El torneo se ha creado aleatoriamente!", "Torneo Creado", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_CrearTorneoActionPerformed
     private void btn_SalirVisualizacionTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirVisualizacionTorneoActionPerformed
         this.VisualizarJornadas_Dia.setVisible(false);
-<<<<<<< HEAD
-        //this.VisualizarTorneoMenu_Dia.setVisible(true);
-=======
->>>>>>> d2066c8d7ae129547273a95d98c23dbedfdf3179
     }//GEN-LAST:event_btn_SalirVisualizacionTorneoActionPerformed
     private void btn_SalirAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirAdminActionPerformed
         this.Administracion_Dialog.setVisible(false);
@@ -1350,32 +1342,11 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_EquipoAActionPerformed
     private void btn_VerTorneoParticipacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VerTorneoParticipacionActionPerformed
         //metodo repetido
-<<<<<<< HEAD
+
         cargarTablasTorneo();
         
-=======
-        if (torneo == null) {
-            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
-        } else {
-            this.VisualizarJornadas_Dia.pack();
-            this.VisualizarJornadas_Dia.setModal(true);
-            this.VisualizarJornadas_Dia.setVisible(true);
-            ((DefaultTableModel) TablaJornadaA.getModel()).setRowCount(0);
-            ((DefaultTableModel) TablaJornadaB.getModel()).setRowCount(0);
-            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaA.getModel());
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
-                model.addRow(row);
-            }//Fin del for
-            for (Partido p : torneo.getJornadas().get(1).getPartidos()) {
-                DefaultTableModel model = ((DefaultTableModel) TablaJornadaB.getModel());
-                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
-                    p.getA().getPeso() - p.getB().getPeso()};
-                model.addRow(row);
-            }//Fin del for
-        }//Fin del if else
->>>>>>> d2066c8d7ae129547273a95d98c23dbedfdf3179
+        
+
     }//GEN-LAST:event_btn_VerTorneoParticipacionActionPerformed
 
     private void btn_quinelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quinelaActionPerformed
