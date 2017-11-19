@@ -86,7 +86,6 @@ public class main extends javax.swing.JFrame {
         btn_QuinelaDeJornada = new javax.swing.JButton();
         btn_VerTorneoParticipacion = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        label_NumJornadaUser_Main = new javax.swing.JLabel();
         MenuApuestas = new javax.swing.JDialog();
         jLabel9 = new javax.swing.JLabel();
         label_NumJornadaMenuApuestas = new javax.swing.JLabel();
@@ -140,6 +139,15 @@ public class main extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        Dialog_SelecJornada = new javax.swing.JDialog();
+        LabelJornadaQuinela = new javax.swing.JLabel();
+        btn_JornadaA = new javax.swing.JButton();
+        btn_JornadaB = new javax.swing.JButton();
+        DialogJornadaA = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        TablaJornadaAApuestas = new javax.swing.JTable();
+        DialogJornadaB = new javax.swing.JDialog();
         btn_admin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_quinela = new javax.swing.JButton();
@@ -354,6 +362,11 @@ public class main extends javax.swing.JFrame {
         });
 
         btn_QuinelaDeJornada.setText("Quinela de la Jornada");
+        btn_QuinelaDeJornada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_QuinelaDeJornadaActionPerformed(evt);
+            }
+        });
 
         btn_VerTorneoParticipacion.setText("Ver Torneo");
         btn_VerTorneoParticipacion.addActionListener(new java.awt.event.ActionListener() {
@@ -363,21 +376,12 @@ public class main extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel7.setText("JORNADA");
-
-        label_NumJornadaUser_Main.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        label_NumJornadaUser_Main.setText("#");
+        jLabel7.setText("Participación");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addComponent(jLabel7)
-                .addGap(32, 32, 32)
-                .addComponent(label_NumJornadaUser_Main)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(btn_VerEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,15 +390,17 @@ public class main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(btn_VerTorneoParticipacion, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(201, 201, 201))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(label_NumJornadaUser_Main))
-                .addGap(53, 53, 53)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel7)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_QuinelaDeJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_VerEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -880,11 +886,10 @@ public class main extends javax.swing.JFrame {
         VisualizarArbitros_DiaLayout.setHorizontalGroup(
             VisualizarArbitros_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VisualizarArbitros_DiaLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(VisualizarArbitros_DiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_SalirVisualizarArbitros, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(VisualizarArbitros_DiaLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VisualizarArbitros_DiaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -912,6 +917,108 @@ public class main extends javax.swing.JFrame {
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
+
+        LabelJornadaQuinela.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelJornadaQuinela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelJornadaQuinela.setText("Seleccione la Jornada");
+
+        btn_JornadaA.setText("Jornada A");
+        btn_JornadaA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_JornadaAActionPerformed(evt);
+            }
+        });
+
+        btn_JornadaB.setText("Jornada B");
+        btn_JornadaB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_JornadaBActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Dialog_SelecJornadaLayout = new javax.swing.GroupLayout(Dialog_SelecJornada.getContentPane());
+        Dialog_SelecJornada.getContentPane().setLayout(Dialog_SelecJornadaLayout);
+        Dialog_SelecJornadaLayout.setHorizontalGroup(
+            Dialog_SelecJornadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Dialog_SelecJornadaLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(LabelJornadaQuinela, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Dialog_SelecJornadaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Dialog_SelecJornadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_JornadaA, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                    .addComponent(btn_JornadaB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(126, 126, 126))
+        );
+        Dialog_SelecJornadaLayout.setVerticalGroup(
+            Dialog_SelecJornadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Dialog_SelecJornadaLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(LabelJornadaQuinela)
+                .addGap(42, 42, 42)
+                .addComponent(btn_JornadaA, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(btn_JornadaB, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Jornada A");
+
+        TablaJornadaAApuestas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Equipo Visita", "Peso Visita", "Equipo Casa", "Peso Casa", "Diferencia"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(TablaJornadaAApuestas);
+
+        javax.swing.GroupLayout DialogJornadaALayout = new javax.swing.GroupLayout(DialogJornadaA.getContentPane());
+        DialogJornadaA.getContentPane().setLayout(DialogJornadaALayout);
+        DialogJornadaALayout.setHorizontalGroup(
+            DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DialogJornadaALayout.createSequentialGroup()
+                .addGroup(DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogJornadaALayout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addComponent(jLabel16))
+                    .addGroup(DialogJornadaALayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(312, Short.MAX_VALUE))
+        );
+        DialogJornadaALayout.setVerticalGroup(
+            DialogJornadaALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DialogJornadaALayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout DialogJornadaBLayout = new javax.swing.GroupLayout(DialogJornadaB.getContentPane());
+        DialogJornadaB.getContentPane().setLayout(DialogJornadaBLayout);
+        DialogJornadaBLayout.setHorizontalGroup(
+            DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        DialogJornadaBLayout.setVerticalGroup(
+            DialogJornadaBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quinela 2017");
@@ -1234,6 +1341,47 @@ public class main extends javax.swing.JFrame {
         this.VisualizarTorneoMenu_Dia.setVisible(true);
     }//GEN-LAST:event_btn_SalirVisualizarArbitrosMouseClicked
 
+    private void btn_QuinelaDeJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuinelaDeJornadaActionPerformed
+        this.Dialog_SelecJornada.pack();
+        this.Dialog_SelecJornada.setModal(true);
+        this.Dialog_SelecJornada.setTitle("Jornada");
+        this.Dialog_SelecJornada.setLocationRelativeTo(null);
+        this.Dialog_SelecJornada.setVisible(true);
+    }//GEN-LAST:event_btn_QuinelaDeJornadaActionPerformed
+
+    private void btn_JornadaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_JornadaAActionPerformed
+        if (torneo == null) {
+            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.DialogJornadaA.pack();
+            this.DialogJornadaA.setModal(true);
+            this.DialogJornadaA.setTitle("Jornada");
+            this.DialogJornadaA.setLocationRelativeTo(null);
+            ((DefaultTableModel) TablaJornadaAApuestas.getModel()).setRowCount(0);
+
+            for (Partido p : torneo.getJornadas().get(0).getPartidos()) {
+                DefaultTableModel model = ((DefaultTableModel) TablaJornadaAApuestas.getModel());
+                Object[] row = {p.getA().getNombreEquipo(), p.getA().getPeso(), p.getB().getNombreEquipo(), p.getB().getPeso(),
+                    p.getA().getPeso() - p.getB().getPeso()};
+                model.addRow(row);
+            }//Fin del for
+
+            this.DialogJornadaA.setVisible(true);
+        }//Fin  del if else
+    }//GEN-LAST:event_btn_JornadaAActionPerformed
+
+    private void btn_JornadaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_JornadaBActionPerformed
+        if (torneo == null) {
+            JOptionPane.showMessageDialog(null, "No existe ningún torneo.", "¡Error!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.DialogJornadaB.pack();
+            this.DialogJornadaB.setModal(true);
+            this.DialogJornadaB.setTitle("Jornada");
+            this.DialogJornadaB.setLocationRelativeTo(null);
+            this.DialogJornadaB.setVisible(true);
+        }//Fin del if else
+    }//GEN-LAST:event_btn_JornadaBActionPerformed
+
     public void CrearEquipos() {
 
         File file = null;
@@ -1484,11 +1632,16 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Administracion_Dialog;
+    private javax.swing.JDialog DialogJornadaA;
+    private javax.swing.JDialog DialogJornadaB;
     private javax.swing.JDialog Dialog_IngresarApuesta;
+    private javax.swing.JDialog Dialog_SelecJornada;
     private javax.swing.JDialog JDialog_Participacion;
+    private javax.swing.JLabel LabelJornadaQuinela;
     private javax.swing.JDialog MenuApuestas;
     private javax.swing.JDialog ModificarTorneo_Dia;
     private javax.swing.JTable TablaJornadaA;
+    private javax.swing.JTable TablaJornadaAApuestas;
     private javax.swing.JTable TablaJornadaB;
     private javax.swing.JDialog VisualizarArbitros_Dia;
     private javax.swing.JDialog VisualizarEntrenadores_Dia;
@@ -1497,6 +1650,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog VisualizarTorneoMenu_Dia;
     private javax.swing.JButton btn_BorrarTorneo;
     private javax.swing.JButton btn_CrearTorneo;
+    private javax.swing.JButton btn_JornadaA;
+    private javax.swing.JButton btn_JornadaB;
     private javax.swing.JButton btn_ModificarArbitro;
     private javax.swing.JButton btn_ModificarTorneo;
     private javax.swing.JButton btn_QuinelaDeJornada;
@@ -1529,6 +1684,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1547,6 +1703,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
@@ -1559,7 +1716,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel label_NumJornadaMenuApuestas;
-    private javax.swing.JLabel label_NumJornadaUser_Main;
     private javax.swing.JRadioButton rb_Empate;
     private javax.swing.JRadioButton rb_EquipoA;
     private javax.swing.JRadioButton rb_EquipoB;
