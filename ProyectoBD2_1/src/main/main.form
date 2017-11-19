@@ -1227,12 +1227,9 @@
             <Component class="javax.swing.JTable" name="TablaJornadaAApuestas">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="2" rowCount="0">
                     <Column editable="true" title="Equipo Visita" type="java.lang.String"/>
-                    <Column editable="true" title="Peso Visita" type="java.lang.Double"/>
                     <Column editable="true" title="Equipo Casa" type="java.lang.String"/>
-                    <Column editable="true" title="Peso Casa" type="java.lang.Double"/>
-                    <Column editable="true" title="Diferencia" type="java.lang.Double"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1439,12 +1436,9 @@
             <Component class="javax.swing.JTable" name="TablaJornadaBApuestas">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="2" rowCount="0">
                     <Column editable="true" title="Equipo Visita" type="java.lang.String"/>
-                    <Column editable="true" title="Peso Visita" type="java.lang.Double"/>
                     <Column editable="true" title="Equipo Casa" type="java.lang.String"/>
-                    <Column editable="true" title="Peso Casa" type="java.lang.Double"/>
-                    <Column editable="true" title="Diferencia" type="java.lang.Double"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
